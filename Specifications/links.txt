@@ -1,1 +1,4 @@
 https://www.figma.com/file/zaQnz9IWsXp5BFb9gjwjUd/Ljudio_wireframe?node-id=0%3A1
+
+UML:
+https://lucid.app/lucidchart/invitations/accept/inv_84d057bd-a471-45fc-9bcd-7aa87e275a50
