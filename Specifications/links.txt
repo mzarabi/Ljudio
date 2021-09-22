@@ -1,7 +1,4 @@
-Wireframe:
-https://www.figma.com/file/zaQnz9IWsXp5BFb9gjwjUd/Ljudio_wireframe?node-id=0%3A1
-
-Prototyp:
+Wireframe/Prototyp:
 https://www.figma.com/file/MKYOSMx6JRvwtoFeSydLYo/Untitled?node-id=0%3A1
 
 UML:
