@@ -1,5 +1,5 @@
 Wireframe/Prototyp:
-https://www.figma.com/file/MKYOSMx6JRvwtoFeSydLYo/Untitled?node-id=0%3A1
+https://www.figma.com/file/zaQnz9IWsXp5BFb9gjwjUd/Ljudio_wireframe?node-id=41%3A180
 
 UML:
 https://lucid.app/lucidchart/invitations/accept/inv_84d057bd-a471-45fc-9bcd-7aa87e275a50
