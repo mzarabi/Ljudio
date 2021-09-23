@@ -3,6 +3,7 @@ https://www.figma.com/file/zaQnz9IWsXp5BFb9gjwjUd/Ljudio_wireframe?node-id=41%3A
 
 UML:
 https://lucid.app/lucidchart/invitations/accept/inv_84d057bd-a471-45fc-9bcd-7aa87e275a50
+https://lucid.app/documents/view/9d930098-0231-4252-b8f6-999ef52de81c
 
 Gherkin:
 https://docs.google.com/document/d/1NC4uhVyQpSpmE1bpST6eadZd2D0rlsNWkAgyUSOLLVE/edit?usp=sharing
