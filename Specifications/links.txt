@@ -1,8 +1,7 @@
 Wireframe/Prototyp:
 https://www.figma.com/file/zaQnz9IWsXp5BFb9gjwjUd/Ljudio_wireframe?node-id=41%3A180
 
-UML:
-https://lucid.app/lucidchart/invitations/accept/inv_84d057bd-a471-45fc-9bcd-7aa87e275a50
+Component tree:
 https://lucid.app/documents/view/9d930098-0231-4252-b8f6-999ef52de81c
 
 Gherkin:
