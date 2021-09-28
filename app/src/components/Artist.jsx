@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import css from './Artist.module.css';
+import ArtistAlbums from './ArtistAlbums';
 
 function Artist() {
   const [artist, setArtistName] = useState();
@@ -8,7 +9,7 @@ function Artist() {
 
   (async () => {
     let response = await fetch(
-      'https://yt-music-api.herokuapp.com/api/yt/artist/UCedvOgsKFzcK3hA5taf3KoQ'
+      'https://yt-music-api.herokuapp.com/api/yt/artist/UCGexNm_Kw4rdQjLxmpb2EKw'
     );
     let result = await response.json();
     setArtistName(result.name);
