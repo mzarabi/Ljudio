@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import ArtistPage from './pages/ArtistPage';
 
 import SearchBar from './components/SearchBar';
 // import routing components

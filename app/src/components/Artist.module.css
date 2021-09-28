@@ -1,0 +1,15 @@
+.name {
+  display: flex;
+  justify-content: center;
+}
+
+.picture {
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+}

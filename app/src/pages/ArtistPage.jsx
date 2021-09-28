@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Artist from '../components/Artist';
+import ArtistAlbums from '../components/ArtistAlbums';
 
 function ArtistPage() {
   return (
     <div>
-      <h1>Artist Page</h1>
+      <Artist />
+      <ArtistAlbums />
     </div>
-  )
+  );
 }
 
-export default ArtistPage
+export default ArtistPage;
