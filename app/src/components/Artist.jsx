@@ -5,9 +5,9 @@ function Artist() {
   const [artist, setArtistName] = useState();
   const [artistPicture, setArtistPicture] = useState();
   const [shortArtistDescription, setShortArtistDescription] = useState();
-  const [tempArtistDescription, setTempArtistDescription] = useState();
   const [fullArtistDescription, setFullArtistDescription] = useState();
   const [artistAlbums, setArtistAlbums] = useState([]);
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     getArtistApi();
@@ -28,7 +28,6 @@ function Artist() {
     setArtistName(result.name);
     setArtistPicture(result.thumbnails[0].url);
     setShortArtistDescription(result.description.substring(0, 300));
-    setTempArtistDescription(result.description.substring(0, 300));
     setFullArtistDescription(result.description);
   }
 
@@ -39,15 +38,10 @@ function Artist() {
         <img src={artistPicture}></img>
       </div>
       <div className={css.description}>
-        {shortArtistDescription}
+        {showMore ? fullArtistDescription : shortArtistDescription}
         <div>
-          <button
-            onClick={() => setShortArtistDescription(fullArtistDescription)}>
-            Show more
-          </button>
-          <button
-            onClick={() => setShortArtistDescription(tempArtistDescription)}>
-            Show less
+          <button onClick={() => setShowMore(!showMore)}>
+            {showMore ? 'Show less' : 'Show more'}
           </button>
         </div>
       </div>
