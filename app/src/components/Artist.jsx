@@ -37,9 +37,9 @@ function Artist() {
       <div className={css.description}>
         <p>{artistDescription}</p>
       </div>
-      <div>
+      <div className={css.albums}>
         {artistAlbums.map((picture, i) => (
-          <img src={picture} key={i}></img>
+          <img className={css.pic} src={picture} key={i}></img>
         ))}
       </div>
     </div>
