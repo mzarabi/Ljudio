@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import ArtistPage from './pages/ArtistPage';
 
-import SearchBar from './components/SearchBar';
 // import routing components
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -10,6 +8,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import StartPage from './pages/StartPage';
 import SearchPage from './pages/SearchPage';
 import ArtistPage from './pages/ArtistPage';
+
+import SearchBar from './components/SearchBar';
 
 import homeIcon from './images/homepage.png';
 import searchIcon from './images/search.png';

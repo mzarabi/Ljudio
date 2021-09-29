@@ -26,6 +26,11 @@ function SearchBar() {
         type="text"
         placeholder="search songs"
         onChange={(e) => setInput(e.target.value)}
+        onKeyPress={(event) => {
+          if (event.key === 'Enter') {
+            searchSong();
+          }
+        }}
       />
       <button onClick={searchSong}>Search</button>
       <hr />
