@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-import ArtistPage from './pages/ArtistPage';
 
 // import routing components
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
