@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Artist from '../components/Artist';
 
 function ArtistPage() {
   return (
     <div>
-      <h1>Artist Page</h1>
+      <Artist />
     </div>
-  )
+  );
 }
 
-export default ArtistPage
+export default ArtistPage;

@@ -1,0 +1,27 @@
+.name {
+  display: flex;
+  justify-content: center;
+}
+
+.picture {
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+}
+
+.albums {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5%;
+  justify-content: space-around;
+}
+
+.pic {
+  width: 45%;
+  padding-bottom: 5%;
+}
