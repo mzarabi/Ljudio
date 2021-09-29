@@ -13,7 +13,7 @@ function Artist() {
 
   async function getArtistApi() {
     let response = await fetch(
-      'https://yt-music-api.herokuapp.com/api/yt/artist/UChgxarBUCnPJV871-46bJ2g'
+      'https://yt-music-api.herokuapp.com/api/yt/artist/UClYV6hHlupm_S_ObS1W-DYw'
     );
     let result = await response.json();
 
