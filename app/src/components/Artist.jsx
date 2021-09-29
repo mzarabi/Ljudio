@@ -4,7 +4,9 @@ import css from './Artist.module.css';
 function Artist() {
   const [artist, setArtistName] = useState();
   const [artistPicture, setArtistPicture] = useState();
-  const [artistDescription, setArtistDescription] = useState();
+  const [shortArtistDescription, setShortArtistDescription] = useState();
+  const [tempArtistDescription, setTempArtistDescription] = useState();
+  const [fullArtistDescription, setFullArtistDescription] = useState();
   const [artistAlbums, setArtistAlbums] = useState([]);
 
   useEffect(() => {
@@ -25,7 +27,9 @@ function Artist() {
 
     setArtistName(result.name);
     setArtistPicture(result.thumbnails[0].url);
-    setArtistDescription(result.description);
+    setShortArtistDescription(result.description.substring(0, 300));
+    setTempArtistDescription(result.description.substring(0, 300));
+    setFullArtistDescription(result.description);
   }
 
   return (
@@ -35,7 +39,17 @@ function Artist() {
         <img src={artistPicture}></img>
       </div>
       <div className={css.description}>
-        <p>{artistDescription}</p>
+        {shortArtistDescription}
+        <div>
+          <button
+            onClick={() => setShortArtistDescription(fullArtistDescription)}>
+            Show more
+          </button>
+          <button
+            onClick={() => setShortArtistDescription(tempArtistDescription)}>
+            Show less
+          </button>
+        </div>
       </div>
       <div className={css.albums}>
         {artistAlbums.map((picture, i) => (
