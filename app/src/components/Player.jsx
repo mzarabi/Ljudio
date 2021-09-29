@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react'
 
 import pauseButton from './player_components/pauseButton'
 import playButton from './player_components/playButton'
+import nextButton from './player_components/nextButton'
+import previousButton from './player_components/previousButton'
+import shuffleButton from './player_components/shuffleButton'
+import repeatbutton from './player_components/repeatbutton'
+import progressBar from './player_components/progressBar'
 
 function Player({ videoId }) {
   useEffect(() => {
@@ -13,8 +18,6 @@ function Player({ videoId }) {
       playSong(videoId)
     }
   }, [videoId])
-
-  const [player, setPlayer] = useState()
 
   function loadPlayer() {
     let ytPlayer = new YT.Player('yt-player', {
@@ -38,18 +41,8 @@ function Player({ videoId }) {
   return (
     <div>
       <div id="yt-player"></div>
-
-      <div>
-        
-        
-        <button onClick={nextSong}>Next</button>
-        <button onClick={previousSong}>Previous</button>
-        <button onClick={toggleRepeat}>Repeat</button>
-        <button onClick={toggleShuffle}>Shuffle</button>
-      </div>
-      <div>
-        
-      </div>
+      <div id="buttons"></div>
+      <div id="progress-bar" event={() => progressBar()}></div>
     </div>
   )
 }
