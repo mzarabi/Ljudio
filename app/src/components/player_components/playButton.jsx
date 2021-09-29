@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {player} from 'react'
+
+const [song, setSong] = useState(initialState)
 
 function playSong(videoId) {
   player.loadVideoById(videoId);
