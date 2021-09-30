@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ContextArtistId } from '../App';
+import { useHistory } from 'react-router-dom';
 
 function SearchBar() {
   const [searchInput, setInput] = useState('');
   const [songs, setSongs] = useState();
   const [artist, setArtist] = useState();
   const [currentVideoId, setCurrentVideoId] = useState();
+  const [context, setContext] = useContext(ContextArtistId);
+  const history = useHistory();
 
   async function searchSong() {
     let response = await fetch(
       'https://yt-music-api.herokuapp.com/api/yt/songs/' + searchInput
     );
     let result = await response.json();
-    console.log(result.content);
     setSongs(result.content);
   }
   async function searchArtist() {
@@ -19,7 +22,6 @@ function SearchBar() {
       'https://yt-music-api.herokuapp.com/api/yt/artists/' + searchInput
     );
     let result = await response.json();
-    console.log(result.content);
     setArtist(result.content);
   }
 
@@ -29,14 +31,14 @@ function SearchBar() {
     console.log(song.artist.browseId);
   }
   function artistClick(artist) {
-    console.log(artist.browseId);
+    setContext(artist.browseId);
+    history.push('/artist');
   }
-
   return (
     <div>
       <input
-        type="text"
-        placeholder="search songs"
+        type='text'
+        placeholder='search songs'
         onChange={(e) => setInput(e.target.value)}
         onKeyPress={(event) => {
           if (event.key === 'Enter') {
