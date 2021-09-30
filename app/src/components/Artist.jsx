@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import css from './Artist.module.css';
+import { ContextArtistId } from '../App';
 
 function Artist() {
   const [artist, setArtistName] = useState();
@@ -8,6 +9,7 @@ function Artist() {
   const [fullArtistDescription, setFullArtistDescription] = useState();
   const [artistAlbums, setArtistAlbums] = useState([]);
   const [showMore, setShowMore] = useState(false);
+  const [context, updateContext] = useContext(ContextArtistId);
 
   useEffect(() => {
     getArtistApi();
@@ -15,7 +17,7 @@ function Artist() {
 
   async function getArtistApi() {
     let response = await fetch(
-      'https://yt-music-api.herokuapp.com/api/yt/artist/UClYV6hHlupm_S_ObS1W-DYw'
+      'https://yt-music-api.herokuapp.com/api/yt/artist/' + context
     );
     let result = await response.json();
 
