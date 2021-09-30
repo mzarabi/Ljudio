@@ -9,3 +9,6 @@
   border-top: 1px solid rgb(230, 230, 230);
 }
 
+img:hover{
+  display: flex;
+}

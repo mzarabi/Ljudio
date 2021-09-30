@@ -34,7 +34,7 @@ function App() {
             </Link>
 
             <Link to='/artist'>
-              <img src={playListIcon} height={42} width={50} />
+              <img src={playListIcon} height={40} width={50} />
             </Link>
           </nav>
 
