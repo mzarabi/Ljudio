@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { ContextArtistId, ContextVideoId } from '../App';
+import { ContextArtistId } from '../App';
 import { useHistory } from 'react-router-dom';
-import Player from './Player';
 
 function SearchBar() {
   const [searchInput, setInput] = useState('');
@@ -9,13 +8,7 @@ function SearchBar() {
   const [artist, setArtist] = useState();
   const [currentVideoId, setCurrentVideoId] = useState();
   const [context, setContext] = useContext(ContextArtistId);
-  const [contextPlayerVal, setContextPlayer] = useContext(ContextVideoId);
   const history = useHistory();
-
-  useEffect(() => {
-    if (currentVideoId) {
-    }
-  }, [currentVideoId]);
 
   async function searchSong() {
     let response = await fetch(
@@ -34,19 +27,18 @@ function SearchBar() {
 
   function songClick(song) {
     console.log(song.name);
-    setContextPlayer(song.videoId);
+    setCurrentVideoId(song.videoId);
     console.log(song.artist.browseId);
   }
   function artistClick(artist) {
-    setContextPlayer(artist.browseId);
+    setContext(artist.browseId);
     history.push('/artist');
   }
   return (
     <div>
-      <Player />
       <input
-        type="text"
-        placeholder="search songs"
+        type='text'
+        placeholder='search songs'
         onChange={(e) => setInput(e.target.value)}
         onKeyPress={(event) => {
           if (event.key === 'Enter') {
