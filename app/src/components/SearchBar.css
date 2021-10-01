@@ -6,7 +6,7 @@
   border-width: 2px;
   border-radius: 12px 12px 12px 12px;
   padding: 2px 2px 2px 5px;  
-  text-align: center; 
+  text-align: center;
   background-image: url(https://www.pngarea.com/pngm/109/1164446_searchicon-png-search-icon-png-download.png);
   background-repeat: no-repeat;
   background-position: 12px;
@@ -15,8 +15,17 @@
   margin-bottom: 50px;
 }
 
+.searchbar{
+  position: fixed;
+  left: 25%;
+}
+
 .searchbar input:focus::placeholder{
   color: transparent;
+}
+
+#header-bottom{
+  margin-bottom: 150px;
 }
 
 hr{

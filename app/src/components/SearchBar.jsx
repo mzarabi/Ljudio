@@ -39,8 +39,8 @@ function SearchBar() {
     history.push('/artist');
   }
   return (
-    <div className='searchbar'>
-      <div className='hello'>
+    <div>
+      <div className='searchbar'>
       <a href="/">
        <img src={ArrowIcon} className='arrow-bar'/>
        </a>
@@ -55,9 +55,9 @@ function SearchBar() {
           }
         }}
       />
-
-      <hr />
-      </div>
+   </div>
+   
+      <hr id='header-bottom'/>
       
       {artist &&
         artist.map((artist) => (
@@ -80,7 +80,7 @@ function SearchBar() {
             {song.name}
               <p style={{ fontSize: '12px' }}>Song</p>
               </div>
-            <hr />
+            <hr  />
           </div>
         ))}
     </div>
