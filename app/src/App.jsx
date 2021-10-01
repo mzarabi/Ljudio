@@ -25,15 +25,15 @@ function App() {
       <div className='App'>
         <Router>
           <nav className='bottom-nav'>
-            <Link to='/'>
-              <img src={homeIcon} height={50} width={50} />
+            <Link to='/' className='img-tab'>
+              <img src={homeIcon} height={45} width={45} />
             </Link>
 
-            <Link to='/search'>
-              <img src={searchIcon} height={50} width={50} />
+            <Link to='/search' className='img-tab'>
+              <img src={searchIcon} height={40} width={45} />
             </Link>
 
-            <Link to='/artist'>
+            <Link to='/artist' className='img-tab'>
               <img src={playListIcon} height={40} width={50} />
             </Link>
           </nav>
