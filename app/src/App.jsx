@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 import './App.css';
 
 // import routing components
@@ -19,6 +19,7 @@ export const ContextArtistId = createContext();
 
 function App() {
   const [contextVal, setContext] = useState();
+  const [contextPlayerVal, setContextPlayer] = useState();
 
   return (
     <ContextArtistId.Provider value={[contextVal, setContext]}>

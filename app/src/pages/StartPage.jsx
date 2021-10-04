@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import '../App.css';
 
 function StartPage() {
@@ -6,7 +6,7 @@ function StartPage() {
     <div>
       <h1>Home page</h1>
     </div>
-  )
+  );
 }
 
-export default StartPage
+export default StartPage;
