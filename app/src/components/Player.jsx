@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { PlayerContext } from '../contexts/PlayerContext';
+import Progressbar from './ProgressBar';
 
 function Player() {
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
@@ -56,6 +57,7 @@ function Player() {
         <button onClick={resumeSong}>Play</button>
         <button onClick={pauseSong}>Pause</button>
       </div>
+      <Progressbar />
     </div>
   );
 }
