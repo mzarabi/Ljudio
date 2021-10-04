@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import css from './Artist.module.css';
 import { ContextArtistId } from '../App';
+import ShareArtist from './ShareArtist';
 
 function Artist() {
   const [artist, setArtistName] = useState();
@@ -36,6 +37,7 @@ function Artist() {
   return (
     <div>
       <h1 className={css.name}>{artist}</h1>
+      <ShareArtist />
       <div className={css.picture}>
         <img src={artistPicture}></img>
       </div>
