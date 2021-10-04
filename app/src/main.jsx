@@ -1,11 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import PlayerContextProvider from './contexts/PlayerContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <PlayerContextProvider>
+      <App />
+    </PlayerContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
-)
+);
