@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Player from './components/Player'
+import Player from './components/Player';
 
 // import routing components
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -17,7 +17,9 @@ import playListIcon from './images/library.png';
 function App() {
   return (
     <div className='App'>
-      <Player />
+      <div className='playerBox'>
+        <Player />
+      </div>
       <Router>
         <nav className='bottom-nav'>
           <Link to='/' className='img-tab'>
@@ -39,7 +41,6 @@ function App() {
           <Route path='/artist/:artistId' exact component={ArtistPage} />
         </main>
       </Router>
-
     </div>
   );
 }

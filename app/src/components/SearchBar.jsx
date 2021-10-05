@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { PlayerContext } from '../contexts/PlayerContext';
+import Player from './Player';
 
 import ArrowIcon from '../images/arrow.png';
 import './SearchBar.css';
@@ -12,7 +13,7 @@ function SearchBar() {
   const [currentVideoId, setCurrentVideoId] = useState();
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
   const history = useHistory();
- 
+
   let playList = [];
 
   useEffect(() => {
@@ -38,14 +39,16 @@ function SearchBar() {
   function songClick(song, playList) {
     let playListIndex = playList.indexOf(song.videoId);
     console.log(playListIndex);
-    updateContext({ songID: song, index: playListIndex, playListArray: playList });
-
+    updateContext({
+      songID: song,
+      index: playListIndex,
+      playListArray: playList,
+    });
   }
 
   function artistClick(artist) {
     history.push('/artist/' + artist.browseId);
   }
-
 
   return (
     <div>
@@ -53,7 +56,7 @@ function SearchBar() {
         <a href='/'>
           <img src={ArrowIcon} className='arrow-bar' />
         </a>
-      
+
         <input
           type='text'
           placeholder='Artists or songs'
@@ -66,12 +69,8 @@ function SearchBar() {
           }}
         />
       </div>
-      
-      <hr id='header-bottom' />
 
-      <div className='playerBox'>
-      <Player />
-      </div>
+      <hr id='header-bottom' />
 
       {artist &&
         artist.map((artist) => (
@@ -81,22 +80,31 @@ function SearchBar() {
               {artist.name}
               <p style={{ fontSize: '12px' }}>Artist</p>
             </div>
-            <hr/>
+            <hr />
           </div>
         ))}
 
       {songs &&
-        songs.map((song) => (
-          playList.push(song.videoId),
-          <div className='search-artist-song'>
-            <img src={song.thumbnails[0].url} onClick={() => artistClick(song.artist)} />
-            <div className='thumbnails'  onClick={() => songClick(song, playList)}>
-              {song.name}
-              <p style={{ fontSize: '12px' }}>Song • {song.artist.name}</p>
-            </div>
-            <hr />
-          </div>
-        ))}
+        songs.map(
+          (song) => (
+            playList.push(song.videoId),
+            (
+              <div className='search-artist-song'>
+                <img
+                  src={song.thumbnails[0].url}
+                  onClick={() => artistClick(song.artist)}
+                />
+                <div
+                  className='thumbnails'
+                  onClick={() => songClick(song, playList)}>
+                  {song.name}
+                  <p style={{ fontSize: '12px' }}>Song • {song.artist.name}</p>
+                </div>
+                <hr />
+              </div>
+            )
+          )
+        )}
     </div>
   );
 }
