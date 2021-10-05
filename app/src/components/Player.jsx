@@ -4,6 +4,8 @@ import Progressbar from './ProgressBar';
 
 import playIcon from '../images/play.png';
 import pauseIcon from '../images/pause.png';
+import nextIcon from '../images/next.png';
+import previousIcon from '../images/previous.png';
 
 function Player() {
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
@@ -65,10 +67,10 @@ function Player() {
       <div id='yt-player'></div>
 
       <div>
-        <button onClick={playPrevious}>Previous</button>
+        <img src={previousIcon} onClick={playPrevious} height={45} width={45} />
         <img src={playIcon} onClick={resumeSong} height={45} width={45} />
-        <img src={pauseIcon} onClick={pauseSong} height={45} width={45}/>
-        <button onClick={playNext}>Next</button>
+        <img src={pauseIcon} onClick={pauseSong} height={45} width={45} />
+        <img src={nextIcon} onClick={playNext} height={45} width={45}/>
       </div>
       <Progressbar />
     </div>
