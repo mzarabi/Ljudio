@@ -2,6 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import { PlayerContext } from '../contexts/PlayerContext';
 import Progressbar from './ProgressBar';
 
+import playIcon from '../images/play.png';
+import pauseIcon from '../images/pause.png';
+
 function Player() {
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
   const [player, setPlayer] = useState();
@@ -63,8 +66,8 @@ function Player() {
 
       <div>
         <button onClick={playPrevious}>Previous</button>
-        <button onClick={resumeSong}>Play</button>
-        <button onClick={pauseSong}>Pause</button>
+        <img src={playIcon} onClick={resumeSong} height={45} width={45} />
+        <img src={pauseIcon} onClick={pauseSong} height={45} width={45}/>
         <button onClick={playNext}>Next</button>
       </div>
       <Progressbar />
