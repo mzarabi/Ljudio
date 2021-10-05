@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import Player from './Player';
 import { PlayerContext } from '../contexts/PlayerContext';
 
 import ArrowIcon from '../images/arrow.png';
@@ -13,6 +12,8 @@ function SearchBar() {
   const [currentVideoId, setCurrentVideoId] = useState();
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
   const history = useHistory();
+ 
+  let playList = [];
 
   useEffect(() => {
     if (currentVideoId) {
@@ -32,21 +33,27 @@ function SearchBar() {
     );
     let result = await response.json();
     setArtist(result.content);
-    console.log(result.content);
   }
 
-  function songClick(song) {
-    updateContext({ songID: song });
+  function songClick(song, playList) {
+    let playListIndex = playList.indexOf(song.videoId);
+    console.log(playListIndex);
+    updateContext({ songID: song, index: playListIndex, playListArray: playList });
+
   }
+
   function artistClick(artist) {
     history.push('/artist/' + artist.browseId);
   }
+
+
   return (
     <div>
       <div className='searchbar'>
         <a href='/'>
           <img src={ArrowIcon} className='arrow-bar' />
         </a>
+      
         <input
           type='text'
           placeholder='Artists or songs'
@@ -74,17 +81,18 @@ function SearchBar() {
               {artist.name}
               <p style={{ fontSize: '12px' }}>Artist</p>
             </div>
-            <hr />
+            <hr/>
           </div>
         ))}
 
       {songs &&
         songs.map((song) => (
+          playList.push(song.videoId),
           <div className='search-artist-song'>
-            <img src={song.thumbnails[0].url} />
-            <div className='thumbnails' onClick={() => songClick(song)}>
+            <img src={song.thumbnails[0].url} onClick={() => artistClick(song.artist)} />
+            <div className='thumbnails'  onClick={() => songClick(song, playList)}>
               {song.name}
-              <p style={{ fontSize: '12px' }}>Song</p>
+              <p style={{ fontSize: '12px' }}>Song • {song.artist.name}</p>
             </div>
             <hr />
           </div>

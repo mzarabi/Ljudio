@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 import './StartPage.css';
 
+
 function StartPage() {
   return (
     <div className='searchbar'>
