@@ -36,12 +36,10 @@ function SearchBar() {
   }
 
   function songClick(song, playList) {
-    console.log(song.videoId);
-    console.log(playList);
     let playListIndex = playList.indexOf(song.videoId);
-    
+    console.log(playListIndex);
     updateContext({ songID: song, index: playListIndex, playListArray: playList });
-    console.log(contextPlayerVal);
+
   }
 
   function artistClick(artist) {

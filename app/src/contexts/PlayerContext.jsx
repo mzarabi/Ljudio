@@ -5,9 +5,9 @@ export const PlayerContext = createContext();
 function PlayerContextProvider(props) {
   const [context, setContext] = useState({
     player: null,
-    songID: '',
-  //  index: [],
- //   playListArray: [],
+    //songId: '',
+    //index: [],
+    //playListArray: [],
   });
 
   function updateContext(values) {

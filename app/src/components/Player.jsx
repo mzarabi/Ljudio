@@ -12,7 +12,7 @@ function Player() {
 
   useEffect(() => {
     if (contextPlayerVal.songID) {
-      playSong(contextPlayerVal.songID);
+      playSong(contextPlayerVal);
     }
   }, [contextPlayerVal]);
 
@@ -38,9 +38,8 @@ function Player() {
   }
 
   function playSong(contextPlayerVal) {
-    console.log('made it here' + contextPlayerVal )
-    player.loadPlaylist(contextPlayerVal.playListArray)
-    player.playVideoAt(contextPlayerVal.index);
+    console.log(contextPlayerVal);
+    player.loadPlaylist(contextPlayerVal.playListArray, contextPlayerVal.index)
   }
 
   function resumeSong() {
@@ -52,7 +51,6 @@ function Player() {
   }
 
   function playNext() {
-    
     player.nextVideo()
   }
 
