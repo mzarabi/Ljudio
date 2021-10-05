@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { ContextArtistId } from '../App';
 import { useHistory } from 'react-router-dom';
 import Player from './Player';
 import { PlayerContext } from '../contexts/PlayerContext';
@@ -12,7 +11,6 @@ function SearchBar() {
   const [songs, setSongs] = useState();
   const [artist, setArtist] = useState();
   const [currentVideoId, setCurrentVideoId] = useState();
-  const [context, setContext] = useContext(ContextArtistId);
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
   const history = useHistory();
 
@@ -41,8 +39,7 @@ function SearchBar() {
     updateContext({ songID: song });
   }
   function artistClick(artist) {
-    setContextPlayer(artist.browseId);
-    history.push('/artist');
+    history.push('/artist/' + artist.browseId);
   }
   return (
     <div>
