@@ -53,12 +53,16 @@ function Player() {
   function playNext() {
     player.nextVideo()
   }
+  function playPrevious() {
+    player.previousVideo()
+  }
 
   return (
     <div>
       <div id='yt-player'></div>
 
       <div>
+        <button onClick={playPrevious}>Previous</button>
         <button onClick={resumeSong}>Play</button>
         <button onClick={pauseSong}>Pause</button>
         <button onClick={playNext}>Next</button>
