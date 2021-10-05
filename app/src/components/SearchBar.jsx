@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import Player from './Player';
 import { PlayerContext } from '../contexts/PlayerContext';
 
 import ArrowIcon from '../images/arrow.png';
@@ -47,7 +46,7 @@ function SearchBar() {
         <a href='/'>
           <img src={ArrowIcon} className='arrow-bar' />
         </a>
-        <Player />
+      
         <input
           type='text'
           placeholder='Artists or songs'
