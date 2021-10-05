@@ -59,10 +59,12 @@ function SearchBar() {
           }}
         />
       </div>
-
-      <Player />
-
+      
       <hr id='header-bottom' />
+
+      <div className='playerBox'>
+      <Player />
+      </div>
 
       {artist &&
         artist.map((artist) => (
