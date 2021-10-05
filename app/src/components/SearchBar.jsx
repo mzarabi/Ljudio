@@ -47,7 +47,6 @@ function SearchBar() {
         <a href='/'>
           <img src={ArrowIcon} className='arrow-bar' />
         </a>
-        <Player />
         <input
           type='text'
           placeholder='Artists or songs'
@@ -60,6 +59,8 @@ function SearchBar() {
           }}
         />
       </div>
+
+      <Player />
 
       <hr id='header-bottom' />
 

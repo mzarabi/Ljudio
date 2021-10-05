@@ -1,10 +1,19 @@
 import React from 'react';
 import '../App.css';
+import './StartPage.css';
 
 function StartPage() {
   return (
-    <div>
-      <h1>Home page</h1>
+    <div className='searchbar'>
+      <h1>WELCOME</h1>
+
+      <a href= '\search'>
+          <input
+          type='text'
+          placeholder='Artists or songs'
+        />
+        </a>
+    
     </div>
   );
 }
