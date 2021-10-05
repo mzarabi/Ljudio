@@ -20,6 +20,7 @@ function Player() {
     let ytPlayer = new YT.Player('yt-player', {
       height: '0',
       width: '0',
+      playerVars: {'autoplay': 1},
       events: {
         onStateChange: onPlayerStateChange,
       },
@@ -37,8 +38,9 @@ function Player() {
   }
 
   function playSong(contextPlayerVal) {
-    console.log(contextPlayerVal);
-    player.loadVideoById(contextPlayerVal);
+    console.log('made it here' + contextPlayerVal )
+    player.loadPlaylist(contextPlayerVal.playListArray)
+    player.playVideoAt(contextPlayerVal.index);
   }
 
   function resumeSong() {
@@ -49,6 +51,11 @@ function Player() {
     player.pauseVideo();
   }
 
+  function playNext() {
+    
+    player.nextVideo()
+  }
+
   return (
     <div>
       <div id='yt-player'></div>
@@ -56,6 +63,7 @@ function Player() {
       <div>
         <button onClick={resumeSong}>Play</button>
         <button onClick={pauseSong}>Pause</button>
+        <button onClick={playNext}>Next</button>
       </div>
       <Progressbar />
     </div>

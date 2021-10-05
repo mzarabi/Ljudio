@@ -12,6 +12,8 @@ function SearchBar() {
   const [currentVideoId, setCurrentVideoId] = useState();
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
   const history = useHistory();
+ 
+  let playList = [];
 
   useEffect(() => {
     if (currentVideoId) {
@@ -31,15 +33,22 @@ function SearchBar() {
     );
     let result = await response.json();
     setArtist(result.content);
-    console.log(result.content);
   }
 
-  function songClick(song) {
-    updateContext({ songID: song });
+  function songClick(song, playList) {
+    console.log(song.videoId);
+    console.log(playList);
+    let playListIndex = playList.indexOf(song.videoId);
+    
+    updateContext({ songID: song, index: playListIndex, playListArray: playList });
+    console.log(contextPlayerVal);
   }
+
   function artistClick(artist) {
     history.push('/artist/' + artist.browseId);
   }
+
+
   return (
     <div>
       <div className='searchbar'>
@@ -70,17 +79,18 @@ function SearchBar() {
               {artist.name}
               <p style={{ fontSize: '12px' }}>Artist</p>
             </div>
-            <hr />
+            <hr/>
           </div>
         ))}
 
       {songs &&
         songs.map((song) => (
+          playList.push(song.videoId),
           <div className='search-artist-song'>
-            <img src={song.thumbnails[0].url} />
-            <div className='thumbnails' onClick={() => songClick(song)}>
+            <img src={song.thumbnails[0].url} onClick={() => artistClick(song.artist)} />
+            <div className='thumbnails'  onClick={() => songClick(song, playList)}>
               {song.name}
-              <p style={{ fontSize: '12px' }}>Song</p>
+              <p style={{ fontSize: '12px' }}>Song • {song.artist.name}</p>
             </div>
             <hr />
           </div>
