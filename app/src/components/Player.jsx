@@ -10,6 +10,7 @@ import previousIcon from '../images/previous.png';
 function Player() {
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
   const [player, setPlayer] = useState();
+  const [playPause, setPlayPause] = useState(pauseIcon);
 
   useEffect(() => {
     loadPlayer();
@@ -45,8 +46,9 @@ function Player() {
   function playSong(contextPlayerVal) {
     console.log(contextPlayerVal);
     player.loadPlaylist(contextPlayerVal.playListArray, contextPlayerVal.index)
+    setPlayPause(pauseIcon);
   }
-
+/*
   function resumeSong() {
     player.playVideo();
   }
@@ -54,12 +56,23 @@ function Player() {
   function pauseSong() {
     player.pauseVideo();
   }
-
+*/
   function playNext() {
     player.nextVideo()
   }
   function playPrevious() {
     player.previousVideo()
+  }
+
+   function toggleIcon() {
+     if (playPause === pauseIcon) {
+       setPlayPause(playIcon);
+       player.pauseVideo();
+     }
+     else {
+       setPlayPause(pauseIcon);
+       player.playVideo();
+     }
   }
 
   return (
@@ -68,9 +81,8 @@ function Player() {
 
       <div>
         <img src={previousIcon} onClick={playPrevious} height={45} width={45} />
-        <img src={playIcon} onClick={resumeSong} height={45} width={45} />
-        <img src={pauseIcon} onClick={pauseSong} height={45} width={45} />
-        <img src={nextIcon} onClick={playNext} height={45} width={45}/>
+        <img src={playPause} onClick={toggleIcon} height={45} width={45} />
+        <img src={nextIcon} onClick={playNext} height={45} width={45} />
       </div>
       <Progressbar />
     </div>
