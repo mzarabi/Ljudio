@@ -24,6 +24,7 @@ code {
   -webkit-transition: .2s;
   transition: opacity .2s;
   overflow: hidden;
+  margin-left: 35px;
 }
 
 .slider::-webkit-slider-thumb {

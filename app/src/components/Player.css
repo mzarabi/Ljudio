@@ -1,0 +1,13 @@
+.play-button{
+  text-align: center;
+  margin-top: -10px;
+}
+
+.img-position{
+  margin-left: 50px;
+}
+
+.img-position:hover{
+  cursor: pointer;
+  opacity: 0.6;
+}

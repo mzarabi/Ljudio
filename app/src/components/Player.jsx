@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { PlayerContext } from '../contexts/PlayerContext';
 import Progressbar from './ProgressBar';
+import './Player.css';
 
 import playIcon from '../images/play.png';
 import pauseIcon from '../images/pause.png';
@@ -79,10 +80,10 @@ function Player() {
     <div>
       <div id='yt-player'></div>
 
-      <div>
-        <img src={previousIcon} onClick={playPrevious} height={45} width={45} />
-        <img src={playPause} onClick={toggleIcon} height={45} width={45} />
-        <img src={nextIcon} onClick={playNext} height={45} width={45} />
+      <div className='play-button'>
+        <img src={previousIcon} onClick={playPrevious} height={60} width={60} className='img-position'/>
+        <img src={playPause} onClick={toggleIcon} height={60} width={60} className='img-position'/>
+        <img src={nextIcon} onClick={playNext} height={60} width={60} className='img-position'/>
       </div>
       <Progressbar />
     </div>
