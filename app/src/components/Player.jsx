@@ -11,7 +11,7 @@ import previousIcon from '../images/previous.png';
 function Player() {
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
   const [player, setPlayer] = useState();
-  const [playPause, setPlayPause] = useState(pauseIcon);
+  const [playPause, setPlayPause] = useState(playIcon);
 
   useEffect(() => {
     loadPlayer();
