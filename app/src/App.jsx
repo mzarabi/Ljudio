@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import StartPage from './pages/StartPage';
 import SearchPage from './pages/SearchPage';
 import ArtistPage from './pages/ArtistPage';
+import AlbumPage from './pages/AlbumPage';
 
 import homeIcon from './images/homepage.png';
 import searchIcon from './images/search.png';
@@ -30,7 +31,7 @@ function App() {
             <img src={searchIcon} height={40} width={45} />
           </Link>
 
-          <Link to='/artist' className='img-tab'>
+          <Link to='/album' className='img-tab'>
             <img src={playListIcon} height={40} width={50} />
           </Link>
         </nav>
@@ -39,6 +40,7 @@ function App() {
           <Route path='/' exact component={StartPage} />
           <Route path='/search' exact component={SearchPage} />
           <Route path='/artist/:artistId' exact component={ArtistPage} />
+          <Route path='/album' exact component={AlbumPage} />
         </main>
       </Router>
     </div>
