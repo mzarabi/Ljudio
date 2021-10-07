@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import shareIcon from '../images/share.png';
+import checkIcon from '../images/check.png';
+import css from './ShareArtist.module.css';
 
 function ShareArtist() {
   const [copied, setCopied] = useState(false);
@@ -16,7 +19,9 @@ function ShareArtist() {
   return (
     <div>
       <div>
-        <button onClick={copyURL}>{!copied ? 'Share' : 'Copied!'}</button>
+        <button className={css.shareButton} onClick={copyURL}>
+          {!copied ? <img src={shareIcon} /> : <img src={checkIcon} />}
+        </button>
       </div>
     </div>
   );
