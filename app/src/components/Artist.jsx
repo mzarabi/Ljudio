@@ -43,7 +43,7 @@ function Artist() {
       </div>
       <div className={css.description}>
         {showMore ? fullArtistDescription : shortArtistDescription}
-        <div>
+        <div className={css.showButton}>
           <button onClick={() => setShowMore(!showMore)}>
             {showMore ? 'Show less' : 'Show more'}
           </button>

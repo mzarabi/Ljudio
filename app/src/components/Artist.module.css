@@ -11,7 +11,12 @@
 .description {
   display: flex;
   justify-content: center;
-  padding: 5%;
+  color: white;
+  background-color: rgb(4, 4, 27, 0.5);
+  border-radius: 20px;
+  margin: 5%;
+  padding: 2%;
+  line-height: 150%;
 }
 
 .albums {
@@ -24,4 +29,9 @@
 .pic {
   width: 45%;
   padding-bottom: 5%;
+}
+
+.showButton {
+  display: flex;
+  align-items: flex-end;
 }
