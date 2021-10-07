@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Player from './components/Player';
 
@@ -10,11 +10,48 @@ import StartPage from './pages/StartPage';
 import SearchPage from './pages/SearchPage';
 import ArtistPage from './pages/ArtistPage';
 
-import homeIcon from './images/homepage.png';
-import searchIcon from './images/search.png';
-import playListIcon from './images/library.png';
+import homeIconOf from './images/homepage.png';
+import homeIconOn from './images/homepage_ON.png';
+import searchIconOf from './images/search.png';
+import searchIconOn from './images/search_ON.png';
+import libraryIconOf from './images/library.png';
+import libraryIconOn from './images/library_ON.png';
+
 
 function App() {
+  const [homeOnOf, setHomeOnOf] = useState(homeIconOn);
+  const [searchOnOf, setSearchOnOf] = useState(searchIconOf);
+  const [libraryOnOf, setLibraryOnOf] = useState(libraryIconOf);
+
+  
+  function toggleHomeIcon() {
+    if (homeOnOf === homeIconOn) {
+      setSearchOnOf(searchIconOf);
+      setLibraryOnOf(libraryIconOf);
+    }
+    else if (homeOnOf === homeIconOf) {
+      setHomeOnOf(homeIconOn);
+      setSearchOnOf(searchIconOf);
+      setLibraryOnOf(libraryIconOf);
+    }
+  }
+
+  function toggleSearchIcon() {
+    if (searchOnOf === searchIconOf) {
+      setSearchOnOf(searchIconOn);
+      setHomeOnOf(homeIconOf);
+      setLibraryOnOf(libraryIconOf);
+    }
+  }
+
+  function toggleLibraryIcon() {
+     if (libraryOnOf === libraryIconOf) {
+       setLibraryOnOf(libraryIconOn);
+       setSearchOnOf(searchIconOf);
+       setHomeOnOf(homeIconOf);
+     }
+  }
+
   return (
     <div className='App'>
       <div className='playerBox'>
@@ -23,15 +60,15 @@ function App() {
       <Router>
         <nav className='bottom-nav'>
           <Link to='/' className='img-tab'>
-            <img src={homeIcon} height={45} width={45} />
+            <img src={homeOnOf} onClick={toggleHomeIcon} height={45} width={45} />
           </Link>
 
           <Link to='/search' className='img-tab'>
-            <img src={searchIcon} height={40} width={45} />
+            <img src={searchOnOf} onClick={toggleSearchIcon} height={40} width={45} />
           </Link>
 
           <Link to='/artist' className='img-tab'>
-            <img src={playListIcon} height={40} width={50} />
+            <img src={libraryOnOf} onClick={toggleLibraryIcon} height={40} width={50} />
           </Link>
         </nav>
 
