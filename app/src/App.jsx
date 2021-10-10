@@ -40,7 +40,7 @@ function App() {
           <Route path='/' exact component={StartPage} />
           <Route path='/search' exact component={SearchPage} />
           <Route path='/artist/:artistId' exact component={ArtistPage} />
-          <Route path='/album' exact component={AlbumPage} />
+          <Route path='/album/:albumId' exact component={AlbumPage} />
         </main>
       </Router>
     </div>

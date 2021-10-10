@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { PlayerContext } from '../contexts/PlayerContext';
+import { useParams } from 'react-router-dom';
 
 function Album() {
   const [songList, setSongList] = useState([]);
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
+  const { albumId } = useParams();
 
   let playList = [];
 
@@ -13,7 +15,7 @@ function Album() {
 
   async function getArtistApi() {
     let response = await fetch(
-      'https://yt-music-api.herokuapp.com/api/yt/album/MPREb_j9hW0m0Ba8H'
+      'https://yt-music-api.herokuapp.com/api/yt/album/' + albumId
     );
     let result = await response.json();
     setSongList(result.tracks);
