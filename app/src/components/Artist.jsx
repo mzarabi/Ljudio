@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import css from './Artist.module.css';
 import ShareArtist from './ShareArtist';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 function Artist() {
   const [artist, setArtistName] = useState();
@@ -9,8 +9,10 @@ function Artist() {
   const [shortArtistDescription, setShortArtistDescription] = useState();
   const [fullArtistDescription, setFullArtistDescription] = useState();
   const [artistAlbums, setArtistAlbums] = useState([]);
+  const [idOfAlbum, setIdOfAlbum] = useState([]);
   const [showMore, setShowMore] = useState(false);
   const { artistId } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     getArtistApi();
@@ -24,8 +26,10 @@ function Artist() {
 
     let albums = result.products.albums.content;
     for (let i = 0; i < albums.length; i++) {
+      let idAlbum = albums[i].browseId;
       let albumPicture = albums[i].thumbnails[0].url;
       setArtistAlbums((artistAlbums) => [...artistAlbums, albumPicture]);
+      setIdOfAlbum((idOfAlbum) => [...idOfAlbum, idAlbum]);
     }
 
     setArtistName(result.name);
@@ -34,6 +38,9 @@ function Artist() {
     setFullArtistDescription(result.description);
   }
 
+  function albumClick(i) {
+    history.push('/album/' + idOfAlbum[i]);
+  }
   return (
     <div>
       <h1 className={css.name}>{artist}</h1>
@@ -51,7 +58,11 @@ function Artist() {
       </div>
       <div className={css.albums}>
         {artistAlbums.map((picture, i) => (
-          <img className={css.pic} src={picture} key={i}></img>
+          <img
+            className={css.pic}
+            src={picture}
+            onClick={() => albumClick(i)}
+            key={i}></img>
         ))}
       </div>
     </div>
