@@ -7,8 +7,8 @@ function StartPage() {
     <div>
       <h1 className={css.title}>WELCOME
       </h1>
-      
-      <div className={css.searchBar}>
+
+      <div className={css.startPageSearchBar}>
 
       <a href= '\search'>
           <input

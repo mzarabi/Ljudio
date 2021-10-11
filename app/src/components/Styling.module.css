@@ -91,6 +91,7 @@ body{
   border-style: none;
 }
 
+.startPageSearchBar input,
 .searchBar input{
   height: 35px;
   width: 550px;
@@ -110,6 +111,10 @@ body{
 .searchBar{
   position: fixed;
   left: 25%;
+}
+
+.startPageSearchBar{
+  text-align: center;
 }
 
 .searchBar input:focus::placeholder{
