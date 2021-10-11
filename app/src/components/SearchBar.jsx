@@ -17,8 +17,6 @@ function SearchBar() {
   const history = useHistory();
 
   let playList = [];
-  let albumList = [];
-  let albumIdList = [];
 
   useEffect(() => {
     if (currentVideoId) {
@@ -51,6 +49,8 @@ function SearchBar() {
   }
 
   async function artistClick(artist) {
+    let albumList = [];
+    let albumIdList = [];
     let response = await fetch(
       'https://yt-music-api.herokuapp.com/api/yt/artist/' + artist.browseId
     );
