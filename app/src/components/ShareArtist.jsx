@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import shareIcon from '../images/share.png';
 import checkIcon from '../images/check.png';
-import css from './ShareArtist.module.css';
+import css from './Styling.module.css';
 
 function ShareArtist() {
   const [copied, setCopied] = useState(false);

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './App.css';
 import Player from './components/Player';
+import css from './components/Styling.module.css';
 
 // import routing components
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -52,12 +52,12 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='playerBox'>
+      <div className={css.playPanel}>
         <Player />
       </div>
       <Router>
-        <nav className='bottom-nav'>
-          <Link to='/' className='img-tab'>
+        <nav className={css.navBar}>
+          <Link to='/' className={css.navImage}>
             <img
               src={homeOnOf}
               onClick={toggleHomeIcon}
@@ -66,7 +66,7 @@ function App() {
             />
           </Link>
 
-          <Link to='/search' className='img-tab'>
+          <Link to='/search' className={css.navImage}>
             <img
               src={searchOnOf}
               onClick={toggleSearchIcon}
@@ -75,7 +75,7 @@ function App() {
             />
           </Link>
 
-          <Link to='/artist' className='img-tab'>
+          <Link to='/artist' className={css.navImage}>
             <img
               src={libraryOnOf}
               onClick={toggleLibraryIcon}

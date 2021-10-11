@@ -4,7 +4,7 @@ import { PlayerContext } from '../contexts/PlayerContext';
 import Player from './Player';
 
 import ArrowIcon from '../images/arrow.png';
-import './SearchBar.css';
+import css from './Styling.module.css';
 
 function SearchBar() {
   const [searchInput, setInput] = useState('');
@@ -52,9 +52,9 @@ function SearchBar() {
 
   return (
     <div>
-      <div className='searchbar'>
+      <div className={css.searchBar}>
         <a href='/'>
-          <img src={ArrowIcon} className='arrow-bar' />
+          <img src={ArrowIcon} className={css.backArrow} />
         </a>
 
         <input
@@ -70,13 +70,13 @@ function SearchBar() {
         />
       </div>
 
-      <hr id='header-bottom' />
+      <hr className={css.header}/>
 
       {artist &&
         artist.map((artist) => (
-          <div className='search-artist-song'>
+          <div className={css.artistOrSong}>
             <img src={artist.thumbnails[0].url} />
-            <div className='thumbnails' onClick={() => artistClick(artist)}>
+            <div className={css.thumbnails} onClick={() => artistClick(artist)}>
               {artist.name}
               <p style={{ fontSize: '12px' }}>Artist</p>
             </div>
@@ -89,13 +89,13 @@ function SearchBar() {
           (song) => (
             playList.push(song.videoId),
             (
-              <div className='search-artist-song'>
+              <div className={css.artistOrSong}>
                 <img
                   src={song.thumbnails[0].url}
                   onClick={() => artistClick(song.artist)}
                 />
                 <div
-                  className='thumbnails'
+                  className={css.thumbnails}
                   onClick={() => songClick(song, playList)}>
                   {song.name}
                   <p style={{ fontSize: '12px' }}>Song • {song.artist.name}</p>

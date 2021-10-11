@@ -1,12 +1,11 @@
 import React from 'react';
-import '../App.css';
-import './StartPage.css';
+import css from '../components/Styling.module.css';
 
 
 function StartPage() {
   return (
-    <div className='searchbar'>
-      <h1>WELCOME</h1>
+    <div className={css.searchBar}>
+      <h1 className={css.title}>WELCOME</h1>
 
       <a href= '\search'>
           <input

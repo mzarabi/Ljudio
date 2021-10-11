@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { PlayerContext } from '../contexts/PlayerContext';
 import { useParams } from 'react-router-dom';
+import css from './Styling.module.css';
 
 function Album() {
   const [songList, setSongList] = useState([]);
@@ -36,9 +37,9 @@ function Album() {
           (song) => (
             playList.push(song.videoId),
             (
-              <div className='search-artist-song'>
+              <div className={css.artistOrSong}>
                 <div
-                  className='thumbnails'
+                  className={css.thumbnails}
                   value={song.videoId}
                   onClick={() => songClick(song, playList)}>
                   {song.name}

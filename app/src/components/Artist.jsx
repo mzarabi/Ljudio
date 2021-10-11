@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import css from './Artist.module.css';
+import css from './Styling.module.css';
 import ShareArtist from './ShareArtist';
 import { useParams, useHistory } from 'react-router-dom';
 

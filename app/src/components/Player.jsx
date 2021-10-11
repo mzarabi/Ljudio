@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { PlayerContext } from '../contexts/PlayerContext';
 import Progressbar from './ProgressBar';
-import './Player.css';
+import css from './Styling.module.css';
 
 import playIcon from '../images/play.png';
 import pauseIcon from '../images/pause.png';
@@ -80,10 +80,10 @@ function Player() {
     <div>
       <div id='yt-player'></div>
 
-      <div className='play-button'>
-        <img src={previousIcon} onClick={playPrevious} height={60} width={60} className='img-position'/>
-        <img src={playPause} onClick={toggleIcon} height={60} width={60} className='img-position'/>
-        <img src={nextIcon} onClick={playNext} height={60} width={60} className='img-position'/>
+      <div className={css.panel}>
+        <img src={previousIcon} onClick={playPrevious} height={70} width={70} className={css.panelButton}/>
+        <img src={playPause} onClick={toggleIcon} height={70} width={70} className={css.panelButton}/>
+        <img src={nextIcon} onClick={playNext} height={70} width={70} className={css.panelButton}/>
       </div>
       <Progressbar />
     </div>
