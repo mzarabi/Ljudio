@@ -9,33 +9,10 @@ function Artist() {
   const [showMore, setShowMore] = useState(false);
   const history = useHistory();
 
-  // useEffect(() => {
-  //   getArtistApi();
-  // }, []);
-
-  // async function getArtistApi() {
-  //   let response = await fetch(
-  //     'https://yt-music-api.herokuapp.com/api/yt/artist/' + artistId
-  //   );
-  //   let result = await response.json();
-
-  //   let albums = result.products.albums.content;
-  //   for (let i = 0; i < albums.length; i++) {
-  //     let idAlbum = albums[i].browseId;
-  //     let albumPicture = albums[i].thumbnails[0].url;
-  //     setArtistAlbums((artistAlbums) => [...artistAlbums, albumPicture]);
-  //     setIdOfAlbum((idOfAlbum) => [...idOfAlbum, idAlbum]);
-  //   }
-
-  //   setArtistName(result.name);
-  //   setArtistPicture(result.thumbnails[0].url);
-  //   setShortArtistDescription(result.description.substring(0, 300));
-  //   setFullArtistDescription(result.description);
-  // }
-
   function albumClick(i) {
     history.push('/album/' + artistContextVal.albumIds[i]);
   }
+
   return (
     <div>
       <h1 className={css.name}>{artistContextVal.artistName}</h1>
