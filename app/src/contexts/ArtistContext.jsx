@@ -3,7 +3,14 @@ import React, { createContext, useState } from 'react';
 export const ArtistContext = createContext();
 
 function ArtistContextProvider(props) {
-  const [context, setContext] = useState({});
+  const [context, setContext] = useState({
+    artistName: '',
+    artistPicture: '',
+    shortDescription: '',
+    fullDescription: '',
+    albumPictures: [],
+    albumIds: [],
+  });
 
   function updateContext(values) {
     setContext({

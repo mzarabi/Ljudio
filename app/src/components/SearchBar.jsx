@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { PlayerContext } from '../contexts/PlayerContext';
+import { ArtistContext } from '../contexts/ArtistContext';
 import Player from './Player';
 
 import ArrowIcon from '../images/arrow.png';
@@ -12,9 +13,12 @@ function SearchBar() {
   const [artist, setArtist] = useState();
   const [currentVideoId, setCurrentVideoId] = useState();
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
+  const [artistContextVal, updateArtistContext] = useContext(ArtistContext);
   const history = useHistory();
 
   let playList = [];
+  let albumList = [];
+  let albumIdList = [];
 
   useEffect(() => {
     if (currentVideoId) {
@@ -46,8 +50,26 @@ function SearchBar() {
     });
   }
 
-  function artistClick(artist) {
-    history.push('/artist/' + artist.browseId);
+  async function artistClick(artist) {
+    let response = await fetch(
+      'https://yt-music-api.herokuapp.com/api/yt/artist/' + artist.browseId
+    );
+    let result = await response.json();
+    let albums = result.products.albums.content;
+    for (let i = 0; i < albums.length; i++) {
+      albumIdList.push(albums[i].browseId);
+      albumList.push(albums[i].thumbnails[0].url);
+    }
+    updateArtistContext({
+      artistName: result.name,
+      artistPicture: result.thumbnails[0].url,
+      shortDescription: result.description.substring(0, 300),
+      fullDescription: result.description,
+      albumIds: albumIdList,
+      albumPictures: albumList,
+    });
+
+    history.push('/artist');
   }
 
   return (
