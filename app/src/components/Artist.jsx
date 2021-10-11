@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import css from './Styling.module.css';
 
 import ShareArtist from './ShareArtist';
