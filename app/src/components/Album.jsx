@@ -38,6 +38,7 @@ function Album() {
             (
               <div className='search-artist-song'>
                 <div
+                  className='thumbnails'
                   value={song.videoId}
                   onClick={() => songClick(song, playList)}>
                   {song.name}
