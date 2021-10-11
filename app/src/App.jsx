@@ -10,6 +10,7 @@ import StartPage from './pages/StartPage';
 import SearchPage from './pages/SearchPage';
 import ArtistPage from './pages/ArtistPage';
 import AlbumPage from './pages/AlbumPage';
+import UserPage from './pages/UserPage';
 
 import homeIconOf from './images/homepage.png';
 import homeIconOn from './images/homepage_ON.png';
@@ -51,13 +52,13 @@ function App() {
   }
 
   return (
-    <div className='App'>
-      <div className='playerBox'>
+    <div className="App">
+      <div className="playerBox">
         <Player />
       </div>
       <Router>
-        <nav className='bottom-nav'>
-          <Link to='/' className='img-tab'>
+        <nav className="bottom-nav">
+          <Link to="/" className="img-tab">
             <img
               src={homeOnOf}
               onClick={toggleHomeIcon}
@@ -66,7 +67,7 @@ function App() {
             />
           </Link>
 
-          <Link to='/search' className='img-tab'>
+          <Link to="/search" className="img-tab">
             <img
               src={searchOnOf}
               onClick={toggleSearchIcon}
@@ -75,7 +76,7 @@ function App() {
             />
           </Link>
 
-          <Link to='/artist' className='img-tab'>
+          <Link to="/user" className="img-tab">
             <img
               src={libraryOnOf}
               onClick={toggleLibraryIcon}
@@ -86,10 +87,11 @@ function App() {
         </nav>
 
         <main>
-          <Route path='/' exact component={StartPage} />
-          <Route path='/search' exact component={SearchPage} />
-          <Route path='/artist' exact component={ArtistPage} />
-          <Route path='/album/:albumId' exact component={AlbumPage} />
+          <Route path="/" exact component={StartPage} />
+          <Route path="/search" exact component={SearchPage} />
+          <Route path="/artist" exact component={ArtistPage} />
+          <Route path="/user" exact component={UserPage} />
+          <Route path="/album/:albumId" exact component={AlbumPage} />
         </main>
       </Router>
     </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { PlayerContext } from '../contexts/PlayerContext';
 import { ArtistContext } from '../contexts/ArtistContext';
+import { UserContext } from '../contexts/UserContext';
 import Player from './Player';
 
 import ArrowIcon from '../images/arrow.png';
@@ -14,6 +15,7 @@ function SearchBar() {
   const [currentVideoId, setCurrentVideoId] = useState();
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
   const [artistContextVal, updateArtistContext] = useContext(ArtistContext);
+  const [userContextVal, updateUserContext] = useContext(UserContext);
   const history = useHistory();
 
   let playList = [];
@@ -72,16 +74,20 @@ function SearchBar() {
     history.push('/artist');
   }
 
+  function saveToPlaylist(mySong) {
+    userContextVal.myPlaylist.push(mySong);
+  }
+
   return (
     <div>
-      <div className='searchbar'>
-        <a href='/'>
-          <img src={ArrowIcon} className='arrow-bar' />
+      <div className="searchbar">
+        <a href="/">
+          <img src={ArrowIcon} className="arrow-bar" />
         </a>
 
         <input
-          type='text'
-          placeholder='Artists or songs'
+          type="text"
+          placeholder="Artists or songs"
           onChange={(e) => setInput(e.target.value)}
           onKeyPress={(event) => {
             if (event.key === 'Enter') {
@@ -92,13 +98,13 @@ function SearchBar() {
         />
       </div>
 
-      <hr id='header-bottom' />
+      <hr id="header-bottom" />
 
       {artist &&
         artist.map((artist) => (
-          <div className='search-artist-song'>
+          <div className="search-artist-song">
             <img src={artist.thumbnails[0].url} />
-            <div className='thumbnails' onClick={() => artistClick(artist)}>
+            <div className="thumbnails" onClick={() => artistClick(artist)}>
               {artist.name}
               <p style={{ fontSize: '12px' }}>Artist</p>
             </div>
@@ -111,18 +117,20 @@ function SearchBar() {
           (song) => (
             playList.push(song.videoId),
             (
-              <div className='search-artist-song'>
+              <div className="search-artist-song">
                 <img
                   src={song.thumbnails[0].url}
                   onClick={() => artistClick(song.artist)}
                 />
                 <div
-                  className='thumbnails'
-                  onClick={() => songClick(song, playList)}>
+                  className="thumbnails"
+                  onClick={() => songClick(song, playList)}
+                >
                   {song.name}
                   <p style={{ fontSize: '12px' }}>Song • {song.artist.name}</p>
                 </div>
                 <hr />
+                <button onClick={() => saveToPlaylist(song)}>SAVE</button>
               </div>
             )
           )

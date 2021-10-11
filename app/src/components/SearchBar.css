@@ -1,46 +1,45 @@
-
-.searchbar input{
+.searchbar input {
   height: 35px;
   width: 550px;
-  border:steelblue solid;
+  border: steelblue solid;
   border-width: 2px;
   border-radius: 12px 12px 12px 12px;
-  padding: 2px 2px 2px 5px;  
+  padding: 2px 2px 2px 5px;
   text-align: center;
   background-image: url(https://www.pngarea.com/pngm/109/1164446_searchicon-png-search-icon-png-download.png);
   background-repeat: no-repeat;
   background-position: 12px;
-  background-size: 18px;   
+  background-size: 18px;
   font-size: 18px;
   margin-bottom: 50px;
 }
 
-.searchbar{
+.searchbar {
   position: fixed;
   left: 25%;
 }
 
-.searchbar input:focus::placeholder{
+.searchbar input:focus::placeholder {
   color: transparent;
 }
 
-#header-bottom{
+#header-bottom {
   margin-bottom: 150px;
 }
 
-hr{
+hr {
   border: 0;
   margin-top: 10px;
 }
 
-.arrow-bar{
+.arrow-bar {
   height: 40px;
   width: 50px;
   margin-bottom: -15px;
   margin-right: 40px;
 }
 
-.search-artist-song{
+.search-artist-song {
   display: block;
   background-color: rgb(4, 4, 27);
   text-size-adjust: 20px;
@@ -52,23 +51,22 @@ hr{
   padding-top: 20px;
 }
 
-.thumbnails{
+.thumbnails {
   position: absolute;
   margin-top: -60px;
   margin-left: 150px;
 }
 
-.arrow-bar:hover{
+.arrow-bar:hover {
   background-color: orange;
 }
 
-.thumbnails:hover{
+.thumbnails:hover {
   color: orange;
   cursor: pointer;
 }
 
-
-.playerBox{
+.playerBox {
   position: fixed;
   background-color: black;
   margin-left: 20px;
@@ -76,5 +74,4 @@ hr{
   margin-top: 380px;
   border-radius: 20px 20px 20px 20px;
   padding-top: 40px;
-  
 }
