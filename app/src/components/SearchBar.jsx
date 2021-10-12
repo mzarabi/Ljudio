@@ -95,7 +95,7 @@ function SearchBar() {
             className={css.artistOrSongBox}>
             <div className={css.artistOrSongResult}>
               <img className={css.thumbnails} src={artist.thumbnails[0].url} />
-              <div>
+              <div className={css.artistName}>
                 <p>{artist.name}</p>
                 <p style={{ fontSize: '80%' }}>Artist</p>
               </div>
