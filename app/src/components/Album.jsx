@@ -37,14 +37,13 @@ function Album() {
           (song) => (
             playList.push(song.videoId),
             (
-              <div className={css.artistOrSong}>
+              <div className={css.artistOrSongBox}>
                 <div
-                  className={css.thumbnails}
+                  className={css.songBox}
                   value={song.videoId}
                   onClick={() => songClick(song, playList)}>
                   {song.name}
                 </div>
-                <hr />
               </div>
             )
           )

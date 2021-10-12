@@ -194,9 +194,9 @@ body {
   color: white;
   background-color: rgb(4, 4, 27, 0.5);
   border-radius: 20px;
-  margin: 5%;
-  padding: 2%;
-  line-height: 150%;
+  margin: 2vh;
+  padding: 2vh;
+  line-height: 130%;
 }
 
 .albums {
@@ -214,4 +214,9 @@ body {
 .showButton {
   display: flex;
   align-items: flex-end;
+}
+.songBox {
+  display: flex;
+  flex-direction: row;
+  padding: 2vh;
 }
