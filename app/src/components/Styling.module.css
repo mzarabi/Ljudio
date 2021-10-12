@@ -181,6 +181,7 @@ body {
   display: flex;
   justify-content: center;
   color: orange;
+  font-size: 300%;
 }
 
 .picture {
