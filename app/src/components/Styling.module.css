@@ -97,7 +97,7 @@ body {
 
 .artistOrSongBox {
   display: flex;
-  background-color: rgb(4, 4, 27, 0.5);
+  background-color: rgb(4, 4, 27, 0.6);
   border-radius: 20px;
   padding: 1vh 1vw;
   margin: 1%;
