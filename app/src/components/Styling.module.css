@@ -22,9 +22,9 @@ body {
   flex-direction: column;
   background-color: black;
   border-radius: 20px;
-  margin-left: 1em;
-  margin-right: 1em;
-  padding: 1em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding: 0.8em;
   max-width: 100%;
   position: fixed;
   bottom: 9vh;
@@ -95,13 +95,6 @@ body {
   color: transparent;
 }
 
-.backArrow {
-  height: 40px;
-  width: 50px;
-  margin-bottom: -15px;
-  margin-right: 40px;
-}
-
 .artistOrSongBox {
   display: flex;
   background-color: rgb(4, 4, 27);
@@ -152,7 +145,7 @@ body {
 .slider {
   -webkit-appearance: none;
   width: 100%;
-  height: 15px;
+  height: 1vh;
   border-radius: 5px;
   background: #d3d3d3;
   outline: none;
