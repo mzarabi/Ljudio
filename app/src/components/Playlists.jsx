@@ -20,15 +20,15 @@ function Playlists() {
     });
   }
 
-  function handleRemove(song) {
-    userContextVal.myPlaylist.pop(song)
+  function handleRemove(index) {
+    userContextVal.myPlaylist.splice(index,1)
     history.push('/user')
   }
 
   return (
     <div>
       {userContextVal.myPlaylist.map(
-        (song) => (
+        (song, i) => (
           playList.push(song.videoId),
           (
             <div>
@@ -36,7 +36,7 @@ function Playlists() {
               <div onClick={() => songClick(song, playList)}>
                 <p>{song.name}</p>            
               </div>
-              <button onClick= {() => handleRemove(song)}>Remove</button>
+              <button onClick= {() => handleRemove(i)}>Remove</button>
               <hr />
             </div>
           )
