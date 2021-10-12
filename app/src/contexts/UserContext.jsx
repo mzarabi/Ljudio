@@ -4,7 +4,7 @@ export const UserContext = createContext();
 
 function UserContextProvider(props) {
   const [context, setContext] = useState({
-    userName: 'dummy',
+    userName: 'buddy',
     passWord: 123,
     myPlaylist: [],
   });

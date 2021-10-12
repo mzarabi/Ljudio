@@ -19,6 +19,7 @@ function SearchBar() {
   const history = useHistory();
 
   let playList = [];
+  
 
   useEffect(() => {
     if (currentVideoId) {
@@ -77,7 +78,7 @@ function SearchBar() {
   function saveToPlaylist(mySong) {
     userContextVal.myPlaylist.push(mySong);
   }
-
+ 
   return (
     <div>
       <div className="searchbar">
@@ -130,7 +131,7 @@ function SearchBar() {
                   <p style={{ fontSize: '12px' }}>Song • {song.artist.name}</p>
                 </div>
                 <hr />
-                <button onClick={() => saveToPlaylist(song)}>SAVE</button>
+                <button onClick={() => saveToPlaylist(song)}>Add</button>
               </div>
             )
           )

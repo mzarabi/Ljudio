@@ -1,13 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { PlayerContext } from '../contexts/PlayerContext';
+import { useHistory } from 'react-router-dom';
 
 function Playlists() {
   const [userContextVal, setUserContextVal] = useContext(UserContext);
   const [playerContextVal, updateContext] = useContext(PlayerContext);
-
+  const history = useHistory();
   let playList = [];
-
+  
+ 
   function songClick(song, playList) {
     let playListIndex = playList.indexOf(song.videoId);
     console.log(playListIndex);
@@ -16,6 +18,11 @@ function Playlists() {
       index: playListIndex,
       playListArray: playList,
     });
+  }
+
+  function handleRemove(song) {
+    userContextVal.myPlaylist.pop(song)
+    history.push('/user')
   }
 
   return (
@@ -27,8 +34,9 @@ function Playlists() {
             <div>
               <img src={song.thumbnails[0].url} />
               <div onClick={() => songClick(song, playList)}>
-                <p>{song.name}</p>
+                <p>{song.name}</p>            
               </div>
+              <button onClick= {() => handleRemove(song)}>Remove</button>
               <hr />
             </div>
           )
