@@ -36,7 +36,7 @@ function Progressbar() {
         value={progress}
         onChange={changeSongPosition} 
         type="range" 
-        style={{ width: '95%' }}
+        style={{ width: '100%' }}
       />
     </div>
   )

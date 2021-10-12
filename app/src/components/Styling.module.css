@@ -61,7 +61,7 @@ body{
    margin-top: 50px;
    margin-bottom: 240px;
 }
-
+/*
 .playPanel{
   width: 100%;
   background-color: black;
@@ -79,6 +79,33 @@ body{
   margin-left: 150px;
   margin-bottom: 25px;
 }
+*/
+.playPanel{ 
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  bottom: 130px;
+  border-top: 0px;
+  background-color: black;
+}
+
+.panel{
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+}
+
+@media screen and (max-width: 850px) {
+  .panel{
+    display: flex;
+    justify-content: space-around;  
+  }
+  .startPageSearchBar{
+    position: fixed;
+    left: 25%;
+  }
+}
+
 
 .panelButton:hover{
   cursor: pointer;
@@ -180,7 +207,7 @@ hr{
   -webkit-transition: .2s;
   transition: opacity .2s;
   overflow: hidden;
-  margin-left: 35px;
+ /* margin-left: 35px; */
 }
 
 .slider::-webkit-slider-thumb {
