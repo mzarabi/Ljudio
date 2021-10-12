@@ -62,7 +62,7 @@ body {
 
 .shareButton {
   padding: 0;
-  background-color: rgba(0, 0, 0, 0);
+  background: none;
   border-style: none;
 }
 
@@ -97,7 +97,7 @@ body {
 
 .artistOrSongBox {
   display: flex;
-  background-color: rgb(4, 4, 27);
+  background-color: rgb(4, 4, 27, 0.5);
   border-radius: 20px;
   padding: 1vh 1vw;
   margin: 1%;
