@@ -74,7 +74,8 @@ function Player() {
        setPlayPause(pauseIcon);
        player.playVideo();
      }
-  }
+    }
+  
 
   return (
     <div>

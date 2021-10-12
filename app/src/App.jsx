@@ -10,6 +10,7 @@ import StartPage from './pages/StartPage';
 import SearchPage from './pages/SearchPage';
 import ArtistPage from './pages/ArtistPage';
 import AlbumPage from './pages/AlbumPage';
+import UserPage from './pages/UserPage';
 
 import homeIconOf from './images/homepage.png';
 import homeIconOn from './images/homepage_ON.png';
@@ -75,7 +76,7 @@ function App() {
             />
           </Link>
 
-          <Link to='/artist' className={css.navImage}>
+          <Link to='/user' className={css.navImage}>
             <img
               src={libraryOnOf}
               onClick={toggleLibraryIcon}
@@ -89,6 +90,7 @@ function App() {
           <Route path='/' exact component={StartPage} />
           <Route path='/search' exact component={SearchPage} />
           <Route path='/artist' exact component={ArtistPage} />
+          <Route path='/user' exact component={UserPage} />
           <Route path='/album/:albumId' exact component={AlbumPage} />
         </main>
       </Router>

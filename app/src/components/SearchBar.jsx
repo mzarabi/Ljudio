@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { PlayerContext } from '../contexts/PlayerContext';
 import { ArtistContext } from '../contexts/ArtistContext';
+import { UserContext } from '../contexts/UserContext';
 import Player from './Player';
 
 import ArrowIcon from '../images/arrow.png';
@@ -14,6 +15,7 @@ function SearchBar() {
   const [currentVideoId, setCurrentVideoId] = useState();
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
   const [artistContextVal, updateArtistContext] = useContext(ArtistContext);
+  const [userContextVal, updateUserContext] = useContext(UserContext);
   const history = useHistory();
 
   let playList = [];
@@ -72,6 +74,10 @@ function SearchBar() {
     history.push('/artist');
   }
 
+  function saveToPlaylist(mySong) {
+    userContextVal.myPlaylist.push(mySong);
+  }
+
   return (
     <div>
       <div className={css.searchBar}>
@@ -92,7 +98,7 @@ function SearchBar() {
         />
       </div>
 
-      <hr className={css.header}/>
+      <hr className={css.header} />
 
       {artist &&
         artist.map((artist) => (
@@ -123,6 +129,7 @@ function SearchBar() {
                   <p style={{ fontSize: '12px' }}>Song • {song.artist.name}</p>
                 </div>
                 <hr />
+                <button onClick={() => saveToPlaylist(song)}>Add</button>
               </div>
             )
           )

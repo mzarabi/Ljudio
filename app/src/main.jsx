@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import PlayerContextProvider from './contexts/PlayerContext';
 import ArtistContextProvider from './contexts/ArtistContext';
+import UserContextProvider from './contexts/UserContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <PlayerContextProvider>
       <ArtistContextProvider>
-        <App />
+        <UserContextProvider>
+          <App />
+        </UserContextProvider>
       </ArtistContextProvider>
     </PlayerContextProvider>
   </React.StrictMode>,
