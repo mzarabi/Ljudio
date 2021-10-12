@@ -179,9 +179,8 @@ body {
   font-size: 300%;
 }
 
-.picture {
-  display: flex;
-  justify-content: center;
+.picture img {
+  width: 100%;
 }
 
 .description {
