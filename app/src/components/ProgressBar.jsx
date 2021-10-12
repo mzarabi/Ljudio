@@ -36,6 +36,7 @@ function Progressbar() {
         value={progress}
         onChange={changeSongPosition}
         type='range'
+        style={{ marginTop: '1em' }}
       />
     </div>
   );
