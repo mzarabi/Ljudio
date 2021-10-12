@@ -95,8 +95,9 @@ function SearchBar() {
             className={css.artistOrSongBox}>
             <div className={css.artistOrSongResult}>
               <img className={css.thumbnails} src={artist.thumbnails[0].url} />
-              <div className={css.artistName}>
+              <div className={css.songArtistName}>
                 <p>{artist.name}</p>
+
                 <p style={{ fontSize: '80%' }}>Artist</p>
               </div>
             </div>
@@ -115,13 +116,9 @@ function SearchBar() {
                     src={song.thumbnails[0].url}
                     onClick={() => artistClick(song.artist)}
                   />
-                  <div className={css.songName}>
-                    <p onClick={() => songClick(song, playList)}>
-                      {song.name}
-                      <p style={{ fontSize: '80%' }}>
-                        Song • {song.artist.name}
-                      </p>
-                    </p>
+                  <div className={css.songArtistName}>
+                    <p onClick={() => songClick(song, playList)}>{song.name}</p>
+                    <p style={{ fontSize: '80%' }}>Song • {song.artist.name}</p>
                   </div>
                 </div>
               </div>
