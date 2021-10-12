@@ -27,7 +27,7 @@ function Player() {
     let ytPlayer = new YT.Player('yt-player', {
       height: '0',
       width: '0',
-      playerVars: {'autoplay': 1},
+      playerVars: { autoplay: 1 },
       events: {
         onStateChange: onPlayerStateChange,
       },
@@ -46,10 +46,10 @@ function Player() {
 
   function playSong(contextPlayerVal) {
     console.log(contextPlayerVal);
-    player.loadPlaylist(contextPlayerVal.playListArray, contextPlayerVal.index)
+    player.loadPlaylist(contextPlayerVal.playListArray, contextPlayerVal.index);
     setPlayPause(pauseIcon);
   }
-/*
+  /*
   function resumeSong() {
     player.playVideo();
   }
@@ -59,33 +59,34 @@ function Player() {
   }
 */
   function playNext() {
-    player.nextVideo()
+    player.nextVideo();
   }
   function playPrevious() {
-    player.previousVideo()
+    player.previousVideo();
   }
 
-   function toggleIcon() {
-     if (playPause === pauseIcon) {
-       setPlayPause(playIcon);
-       player.pauseVideo();
-     }
-     else {
-       setPlayPause(pauseIcon);
-       player.playVideo();
-     }
+  function toggleIcon() {
+    if (playPause === pauseIcon) {
+      setPlayPause(playIcon);
+      player.pauseVideo();
+    } else {
+      setPlayPause(pauseIcon);
+      player.playVideo();
+    }
   }
 
   return (
     <div>
       <div id='yt-player'></div>
 
-      <div className={css.panel}>
-        <img src={previousIcon} onClick={playPrevious} height={70} width={70} className={css.panelButton}/>
-        <img src={playPause} onClick={toggleIcon} height={70} width={70} className={css.panelButton}/>
-        <img src={nextIcon} onClick={playNext} height={70} width={70} className={css.panelButton}/>
+      <div className={css.playerBox}>
+        <div className={css.playerButtons}>
+          <img src={previousIcon} onClick={playPrevious} />
+          <img src={playPause} onClick={toggleIcon} />
+          <img src={nextIcon} onClick={playNext} />
+        </div>
+        <Progressbar />
       </div>
-      <Progressbar />
     </div>
   );
 }

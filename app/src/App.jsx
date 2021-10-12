@@ -52,7 +52,7 @@ function App() {
 
   return (
     <div className='App'>
-      <div className={css.playPanel}>
+      <div>
         <Player />
       </div>
       <Router>
