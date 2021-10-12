@@ -26,6 +26,8 @@ body {
   margin-right: 1em;
   padding: 1em;
   max-width: 100%;
+  position: fixed;
+  bottom: 9vh;
 }
 .playerButtons {
   display: flex;
