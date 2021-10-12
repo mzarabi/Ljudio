@@ -17,11 +17,14 @@ function Artist() {
 
   return (
     <div>
-      <button className={css.back} onClick={history.goBack}>
-        <img src={backButton} />
-      </button>
+      <div className={css.artistButtons}>
+        <button className={css.back} onClick={history.goBack}>
+          <img src={backButton} />
+        </button>
+        <ShareArtist />
+      </div>
       <h1 className={css.name}>{artistContextVal.artistName}</h1>
-      <ShareArtist />
+
       <div className={css.picture}>
         <img src={artistContextVal.artistPicture}></img>
       </div>
