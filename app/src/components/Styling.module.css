@@ -139,6 +139,14 @@ body {
   margin-top: 10vh;
 }
 
+.userTitle{
+  text-align: center;
+  color: orange;
+  font-size: 150%;
+  margin-top: 10vh;
+
+}
+
 .slider {
   -webkit-appearance: none;
   width: 100%;
