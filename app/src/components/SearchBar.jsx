@@ -79,7 +79,7 @@ function SearchBar() {
   }
 
   return (
-    <div>
+    <div className={css.scrollDown}>
       <div className={css.searchBar}>
         <input
           type='text'

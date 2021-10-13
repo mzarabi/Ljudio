@@ -230,3 +230,7 @@ body {
   justify-content: space-between;
   margin: 0 5vw 0 0;
 }
+
+.scrollDown{
+  margin-bottom: 200px;
+}
