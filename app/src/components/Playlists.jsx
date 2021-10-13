@@ -26,7 +26,7 @@ function Playlists() {
   }
 
   return (
-    <div>
+    <div className={css.scrollDown}>
       {userContextVal.myPlaylist.map(
         (song, i) => (
           playList.push(song.videoId),
