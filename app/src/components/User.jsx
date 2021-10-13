@@ -10,7 +10,7 @@ function User() {
   
 
   return (
-    <div className={css.title}>
+    <div className={css.userTitle}>
       <h1>Hey {userContextVal.userName}!</h1>
       <h3>Your favourites:</h3>
       <Playlists/>
