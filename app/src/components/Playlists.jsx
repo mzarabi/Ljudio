@@ -9,8 +9,7 @@ function Playlists() {
   const [playerContextVal, updateContext] = useContext(PlayerContext);
   const history = useHistory();
   let playList = [];
-  
- 
+
   function songClick(song, playList) {
     let playListIndex = playList.indexOf(song.videoId);
     console.log(playListIndex);
@@ -22,25 +21,26 @@ function Playlists() {
   }
 
   function handleRemove(index) {
-    userContextVal.myPlaylist.splice(index,1)
-    history.push('/user')
+    userContextVal.myPlaylist.splice(index, 1);
+    history.push('/user');
   }
 
   return (
-    <div className={css.scrollDown}>
+    <div>
       {userContextVal.myPlaylist.map(
         (song, i) => (
           playList.push(song.videoId),
           (
-            <div className={css.favouritesPlayList}>
-              <img src={song.thumbnails[0].url} />
-              <div
-                 className={css.thumbnails}
-                onClick={() => songClick(song, playList)}>
-                <p>{song.name}</p>            
+            <div className={css.artistOrSongBox}>
+              <div className={css.artistOrSongResult}>
+                <img className={css.thumbnails} src={song.thumbnails[0].url} />
+                <div
+                  className={css.thumbnails}
+                  onClick={() => songClick(song, playList)}>
+                  <p>{song.name}</p>
+                </div>
+                <button onClick={() => handleRemove(i)}>Remove</button>
               </div>
-              <button onClick= {() => handleRemove(i)}>Remove</button>
-              <hr />
             </div>
           )
         )
