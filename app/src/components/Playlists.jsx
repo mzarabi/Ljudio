@@ -4,6 +4,8 @@ import { PlayerContext } from '../contexts/PlayerContext';
 import { useHistory } from 'react-router-dom';
 import css from '../components/Styling.module.css';
 
+import removeIcon from '../images/remove.png';
+
 function Playlists() {
   const [userContextVal, setUserContextVal] = useContext(UserContext);
   const [playerContextVal, updateContext] = useContext(PlayerContext);
@@ -39,7 +41,8 @@ function Playlists() {
                   onClick={() => songClick(song, playList)}>
                   <p>{song.name}</p>
                 </div>
-                <button onClick={() => handleRemove(i)}>Remove</button>
+                
+                <img src={removeIcon} onClick={() => handleRemove(i)} className={css.removeButton} />
               </div>
             </div>
           )

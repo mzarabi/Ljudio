@@ -233,3 +233,7 @@ body {
 .scrollDown {
   margin-bottom: 20vh;
 }
+
+.removeButton{
+  width: 50px;
+}
