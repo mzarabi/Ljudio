@@ -6,7 +6,7 @@ import css from '../components/Styling.module.css';
 
 function SearchPage() {
   return (
-    <div className={css.searchPages}>
+    <div className={css.scrollDown}>
           <SearchBar />
     </div>
   );

@@ -1,6 +1,8 @@
 import React, {useState, useContext, useEffect} from 'react'
 import Playlists from './Playlists'
 import { UserContext } from '../contexts/UserContext'
+import css from '../components/Styling.module.css';
+
 
 function User() {
 
@@ -8,7 +10,7 @@ function User() {
   
 
   return (
-    <div>
+    <div className={css.title}>
       <h1>Hey {userContextVal.userName}!</h1>
       <h3>Your favourites:</h3>
       <Playlists/>

@@ -57,7 +57,7 @@ body{
   align-items: flex-end;
 }
 
-.searchPages{
+.scrollDown{
    margin-top: 50px;
    margin-bottom: 240px;
 }
@@ -144,6 +144,7 @@ body{
   margin-right: 40px;
 }
 
+.favouritesPlayList,
 .artistOrSong{
   display: block;
   background-color: rgb(4, 4, 27);
