@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { PlayerContext } from '../contexts/PlayerContext';
 import { useHistory } from 'react-router-dom';
+import css from '../components/Styling.module.css';
 
 function Playlists() {
   const [userContextVal, setUserContextVal] = useContext(UserContext);
@@ -26,14 +27,16 @@ function Playlists() {
   }
 
   return (
-    <div>
+    <div className={css.scrollDown}>
       {userContextVal.myPlaylist.map(
         (song, i) => (
           playList.push(song.videoId),
           (
-            <div>
+            <div className={css.favouritesPlayList}>
               <img src={song.thumbnails[0].url} />
-              <div onClick={() => songClick(song, playList)}>
+              <div
+                 className={css.thumbnails}
+                onClick={() => songClick(song, playList)}>
                 <p>{song.name}</p>            
               </div>
               <button onClick= {() => handleRemove(i)}>Remove</button>
