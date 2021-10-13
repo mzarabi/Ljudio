@@ -18,7 +18,6 @@ function Player() {
   const [playPause, setPlayPause] = useState(playIcon);
   const [repeat, setRepeat] = useState(repeatButtonOff);
   const [shuffle, setShuffle] = useState(shuffleIconOff);
-  
 
   useEffect(() => {
     loadPlayer();
@@ -27,10 +26,24 @@ function Player() {
   useEffect(() => {
     if (contextPlayerVal.songID) {
       playSong(contextPlayerVal);
-      
     }
   }, [contextPlayerVal]);
 
+  /*
+  useEffect(() => {
+    if (repeat === repeatButtonOn) {
+      if ({ playNext }) {
+        playSong(contextPlayerVal.songID);
+      }
+      if ({ playPrevious }) {
+        playSong(contextPlayerVal.songID);
+      }
+      if (onPlayerStateChange === YT.PlayerState.ENDED) {
+        playSong(contextPlayerVal.songID);
+      }
+    } else return;
+  }, [setRepeat]);
+  */
   function loadPlayer() {
     let ytPlayer = new YT.Player('yt-player', {
       height: '0',
@@ -48,7 +61,17 @@ function Player() {
     });
   }
 
-  function onPlayerStateChange(event) {
+  function onPlayerStateChange(event, contextPlayerVal) {
+    if (event.data === YT.PlayerState.ENDED) {
+      console.log('repeatrepeat');
+      console.log(contextPlayerVal);
+      player.loadVideoById(contextPlayerVal.songID);
+    }
+    if (event.data === YT.PlayerState.BUFFERING) {
+      console.log('repeatrepeat');
+      console.log(contextPlayerVal);
+      playSongRepeat();
+    }
     if (event.data != YT.PlayerState.PLAYING) return;
   }
 
@@ -57,7 +80,13 @@ function Player() {
     player.loadPlaylist(contextPlayerVal.playListArray, contextPlayerVal.index);
     setPlayPause(pauseIcon);
   }
-  
+
+  function playSongRepeat(contextPlayerVal) {
+    console.log('bufferINGGGGG');
+    console.log(contextPlayerVal);
+    player.loadVideoById(contextPlayerVal.songID);
+  }
+
   function playNext() {
     player.nextVideo();
   }
@@ -75,7 +104,6 @@ function Player() {
     }
   }
   function toggleRepeat() {
-    
     // Toggle OFF
     if (repeat === repeatButtonOn) {
       setRepeat(repeatButtonOff);
@@ -87,19 +115,29 @@ function Player() {
       köa en playlist som startar på index efter nuvarande låt.
 
       */
-    }//Toggle ON
+    } //Toggle ON
     else {
       setRepeat(repeatButtonOn);
-      
-      let currentIndex = player.getPlaylistIndex();
-      let currentSong = [];
-      for (let i=0; i<contextPlayerVal.playListArray.length; i++){
-        if(i === currentIndex) {
-          player.cueVideoById(contextPlayerVal.playListArray[i])
-        //   currentSong.push(contextPlayerVal.playListArray[i])
-        //  updateContext({playListArray: currentSong})
-        }
-      }
+      // console.log('1' + player.getPlaylist());
+      // let currentIndex = player.getPlaylistIndex();
+      // console.log(
+      //   'Nuvarande låt' + contextPlayerVal.playListArray[currentIndex]
+      // );
+
+      // console.log(currentIndex);
+      // for (let i = 0; i < contextPlayerVal.playListArray.length; i++) {
+      //   if (i === currentIndex) {
+      //     console.log('i och index matchar');
+      //     console.log(
+      //       'här ska samma låt synas -' + contextPlayerVal.playListArray[i]
+      //     );
+      //     player.loadVideoById(
+      //       contextPlayerVal.playListArray[i],
+      //       player.getCurrentTime()
+      //     );
+
+      //   }
+      // }
       // player.playSong(contextPlayerVal.playListArray)
       //   player.cuePlaylist(contextPlayerVal.playListArray)
       //   player.setLoop(true)
@@ -109,17 +147,17 @@ function Player() {
     //toggle shuffle OFF
     if (shuffle === shuffleIconOn) {
       setShuffle(shuffleIconOff);
-      player.setShuffle(false)     
+      player.setShuffle(false);
     } //toggle shuffle ON
     else {
-      setShuffle(shuffleIconOn); 
-      player.setShuffle(true)
+      setShuffle(shuffleIconOn);
+      player.setShuffle(true);
     }
   }
-console.log(contextPlayerVal.playListArray);
+  console.log(contextPlayerVal);
   return (
     <div>
-      <div id='yt-player'></div>
+      <div id="yt-player"></div>
 
       <div className={css.playerBox}>
         <div className={css.playerButtons}>
