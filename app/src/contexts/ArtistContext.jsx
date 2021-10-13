@@ -12,15 +12,15 @@ function ArtistContextProvider(props) {
     albumIds: [],
   });
 
-  function updateContext(values) {
-    setContext({
-      ...context,
-      ...values,
-    });
-  }
+  // function updateContext(values) {
+  //   setContext({
+  //     ...context,
+  //     ...values,
+  //   });
+  // }
 
   return (
-    <ArtistContext.Provider value={[context, updateContext]}>
+    <ArtistContext.Provider value={[context, setContext]}>
       {props.children}
     </ArtistContext.Provider>
   );

@@ -89,7 +89,7 @@ function App() {
         <main>
           <Route path='/' exact component={StartPage} />
           <Route path='/search' exact component={SearchPage} />
-          <Route path='/artist' exact component={ArtistPage} />
+          <Route path='/artist/:artistId' exact component={ArtistPage} />
           <Route path='/user' exact component={UserPage} />
           <Route path='/album/:albumId' exact component={AlbumPage} />
         </main>

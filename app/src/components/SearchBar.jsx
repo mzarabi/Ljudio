@@ -50,28 +50,8 @@ function SearchBar() {
     });
   }
 
-  async function artistClick(artist) {
-    let albumList = [];
-    let albumIdList = [];
-    let response = await fetch(
-      'https://yt-music-api.herokuapp.com/api/yt/artist/' + artist.browseId
-    );
-    let result = await response.json();
-    let albums = result.products.albums.content;
-    for (let i = 0; i < albums.length; i++) {
-      albumIdList.push(albums[i].browseId);
-      albumList.push(albums[i].thumbnails[0].url);
-    }
-    updateArtistContext({
-      artistName: result.name,
-      artistPicture: result.thumbnails[0].url,
-      shortDescription: result.description.substring(0, 300),
-      fullDescription: result.description,
-      albumIds: albumIdList,
-      albumPictures: albumList,
-    });
-
-    history.push('/artist');
+  function artistClick(artist) {
+    history.push('/artist/' + artist.browseId);
   }
 
   function saveToPlaylist(mySong) {

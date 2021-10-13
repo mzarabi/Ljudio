@@ -139,12 +139,11 @@ body {
   margin-top: 10vh;
 }
 
-.userTitle{
+.userTitle {
   text-align: center;
   color: orange;
   font-size: 150%;
   margin-top: 10vh;
-
 }
 
 .slider {
@@ -231,6 +230,6 @@ body {
   margin: 0 5vw 0 0;
 }
 
-.scrollDown{
+.scrollDown {
   margin-bottom: 200px;
 }

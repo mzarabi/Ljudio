@@ -1,18 +1,48 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import css from './Styling.module.css';
 import backButton from '../images/back.png';
 
 import ShareArtist from './ShareArtist';
 import { useHistory } from 'react-router-dom';
-import { ArtistContext } from '../contexts/ArtistContext';
+import { useParams } from 'react-router-dom';
 
 function Artist() {
-  const [artistContextVal, updateArtistContext] = useContext(ArtistContext);
+  const [artistName, setArtistName] = useState();
+  const [artistPicture, setArtistPicture] = useState();
+  const [artistShortDesc, setArtistShortDesc] = useState();
+  const [artistFullDesc, setArtistFullDesc] = useState();
+  const [artistIdList, setArtistIdList] = useState([]);
+  const [artistAlbumPictures, setArtistAlbumPictures] = useState([]);
   const [showMore, setShowMore] = useState(false);
   const history = useHistory();
+  const { artistId } = useParams();
+
+  useEffect(() => {
+    getArtistApi();
+  }, []);
+
+  async function getArtistApi() {
+    let albumList = [];
+    let albumIdList = [];
+    let response = await fetch(
+      'https://yt-music-api.herokuapp.com/api/yt/artist/' + artistId
+    );
+    let result = await response.json();
+    let albums = result.products.albums.content;
+    for (let i = 0; i < albums.length; i++) {
+      albumIdList.push(albums[i].browseId);
+      albumList.push(albums[i].thumbnails[0].url);
+    }
+    setArtistName(result.name);
+    setArtistPicture(result.thumbnails[0].url);
+    setArtistShortDesc(result.description.substring(0, 300));
+    setArtistFullDesc(result.description);
+    setArtistIdList(albumIdList);
+    setArtistAlbumPictures(albumList);
+  }
 
   function albumClick(i) {
-    history.push('/album/' + artistContextVal.albumIds[i]);
+    history.push('/album/' + artistIdList[i]);
   }
 
   return (
@@ -23,15 +53,12 @@ function Artist() {
         </button>
         <ShareArtist />
       </div>
-      <h1 className={css.name}>{artistContextVal.artistName}</h1>
-
+      <h1 className={css.name}>{artistName}</h1>
       <div className={css.picture}>
-        <img src={artistContextVal.artistPicture}></img>
+        <img src={artistPicture}></img>
       </div>
       <div className={css.description}>
-        {showMore
-          ? artistContextVal.fullDescription
-          : artistContextVal.shortDescription}
+        {showMore ? artistFullDesc : artistShortDesc}
         <div className={css.showButton}>
           <button onClick={() => setShowMore(!showMore)}>
             {showMore ? 'Show less' : 'Show more'}
@@ -39,7 +66,7 @@ function Artist() {
         </div>
       </div>
       <div className={css.albums}>
-        {artistContextVal.albumPictures.map((picture, i) => (
+        {artistAlbumPictures.map((picture, i) => (
           <img
             className={css.pic}
             src={picture}
