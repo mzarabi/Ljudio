@@ -14,6 +14,7 @@ function ShareArtist() {
     document.execCommand('copy');
     document.body.removeChild(el);
     setCopied(true);
+    alert('Artist copied!');
   }
 
   return (

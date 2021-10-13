@@ -1,10 +1,10 @@
-body{
-  background-color: #14213D;
+body {
+  background-color: #14213d;
 }
 
 .navBar {
-  width: 100%;
-  height: 60px;
+  width: 100vw;
+  height: 7vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -14,19 +14,171 @@ body{
   background-color: black;
 }
 
-.navImage:hover{
+.navImage:hover {
   display: flex;
+}
+.playerBox {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  border-radius: 20px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding: 0.8em;
+  max-width: 100%;
+  position: fixed;
+  bottom: 8vh;
+}
+.playerButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.playerButtons img {
+  width: 10%;
+}
+.playPanel {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  margin-top: 400px;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.panel {
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+}
+
+.panelButton {
+  margin-left: 150px;
+  margin-bottom: 25px;
+}
+
+.panelButton:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.shareButton {
+  padding: 0;
+  background: none;
+  border-style: none;
+}
+
+.startPageSearchBar input,
+.searchBar input {
+  width: 100vw;
+  height: 5vh;
+  border-style: none;
+  border-radius: 12px 12px 12px 12px;
+  padding: 2px 2px 2px 5px;
+  text-align: center;
+  background-image: url(https://www.pngarea.com/pngm/109/1164446_searchicon-png-search-icon-png-download.png);
+  background-repeat: no-repeat;
+  background-position: 12px;
+  background-size: 3vh;
+  font-size: 100%;
+}
+
+.searchBar {
+  display: flex;
+  margin: 5vh 0 3vh 0;
+  padding: 0 5vw 0 5vw;
+}
+
+.startPageSearchBar {
+  text-align: center;
+}
+
+.searchBar input:focus::placeholder {
+  color: transparent;
+}
+
+.artistOrSongBox {
+  display: flex;
+  background-color: rgb(4, 4, 27, 0.6);
+  border-radius: 20px;
+  padding: 1vh 1vw;
+  margin: 1%;
+  color: white;
+}
+.artistOrSongResult {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 5vw;
+  margin-left: 1vw;
+}
+
+.artistOrSongResult p {
+  display: inline-block;
+  width: 100%;
+  margin: 0.7vh;
+}
+
+.thumbnails {
+  border-radius: 10px;
+  height: 60px;
+}
+.songArtistName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.songName:hover {
+  color: orange;
+}
+
+.title {
+  text-align: center;
+  color: orange;
+  font-size: 300%;
+  margin-top: 10vh;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1vh;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  overflow: hidden;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: -2000px 0 0 2000px orange;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .name {
   display: flex;
   justify-content: center;
   color: orange;
+  font-size: 300%;
+  margin: 0;
 }
 
-.picture {
-  display: flex;
-  justify-content: center;
+.picture img {
+  width: 100%;
 }
 
 .description {
@@ -35,9 +187,9 @@ body{
   color: white;
   background-color: rgb(4, 4, 27, 0.5);
   border-radius: 20px;
-  margin: 5%;
-  padding: 2%;
-  line-height: 150%;
+  margin: 2vh;
+  padding: 2vh;
+  line-height: 130%;
 }
 
 .albums {
@@ -56,160 +208,17 @@ body{
   display: flex;
   align-items: flex-end;
 }
-
-.searchPages{
-   margin-top: 50px;
-   margin-bottom: 240px;
-}
-
-.playPanel{ 
-  width: 100%;
-  height: 60px;
-  position: fixed;
-  bottom: 130px;
-  border-top: 0px;
-  background-color: black;
-}
-
-.panel{
+.songBox {
   display: flex;
-  justify-content: space-around;
-  background-color: black;
+  flex-direction: row;
+  padding: 2vh;
 }
-
-@media screen and (max-width: 850px) {
-  .panel{
-    display: flex;
-    justify-content: space-around;  
-  }
-  .startPageSearchBar{
-    position: fixed;
-  }
-  .startPageSearchBar input{
-    max-width: 400px;
-  }
-    .searchBar input{
-    max-width: 300px;
-  }
-  .backArrow{
-    margin-left: -100px;
-  }
+.back {
+  background: none;
+  border: none;
 }
-
-.panelButton:hover{
-  cursor: pointer;
-  opacity: 0.6;
-}
-
-.shareButton {
-  padding: 0;
-  background-color: rgba(0, 0, 0, 0);
-  border-style: none;
-}
-
-.startPageSearchBar input,
-.searchBar input{
-  height: 35px;
-  width: 550px;
-  border:steelblue solid;
-  border-width: 2px;
-  border-radius: 12px 12px 12px 12px;
-  padding: 2px 2px 2px 5px;  
-  text-align: center;
-  background-image: url(https://www.pngarea.com/pngm/109/1164446_searchicon-png-search-icon-png-download.png);
-  background-repeat: no-repeat;
-  background-position: 12px;
-  background-size: 18px;   
-  font-size: 18px;
-  margin-bottom: 50px;
-}
-
-.searchBar{
-  position: fixed;
-  left: 25%;
-}
-
-.startPageSearchBar{
-  text-align: center;
-}
-
-.searchBar input:focus::placeholder{
-  color: transparent;
-}
-
-.backArrow{
-  height: 40px;
-  width: 50px;
-  margin-bottom: -15px;
-  margin-right: 40px;
-}
-
-.artistOrSong{
-  display: block;
-  background-color: rgb(4, 4, 27);
-  text-size-adjust: 20px;
-  text-align: justify;
-  color: white;
-  border-radius: 20px 20px 20px 20px;
-  margin: 10px 20px 0px 20px;
-  padding-left: 40px;
-  padding-top: 20px;
-}
-
-.thumbnails{
-  margin-top: -60px;
-  margin-left: 150px;
-}
-
-.thumbnails:hover{
-  color: orange;
-  cursor: pointer;
-}
-
-.header{
-  margin-bottom: 100px;
-  border: 0;
-  margin-top: 10px;
-}
-
-hr{
-  border: 0;
-}
-
-.title{
-  text-align: center;
-  color: orange;
-  font-size: 30px;
-  margin-top: 50px;
-}
-
-
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;  
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-  overflow: hidden;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 0;
-  height: 25px;
-  border-radius: 50%; 
-  cursor: pointer;
-  box-shadow: -2000px 0 0 2000px orange;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  cursor: pointer;
+.artistButtons {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5vw 0 0;
 }

@@ -2,11 +2,14 @@ import React, { useEffect, useState, useContext } from 'react';
 import { PlayerContext } from '../contexts/PlayerContext';
 import { useParams } from 'react-router-dom';
 import css from './Styling.module.css';
+import backButton from '../images/back.png';
+import { useHistory } from 'react-router-dom';
 
 function Album() {
   const [songList, setSongList] = useState([]);
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
   const { albumId } = useParams();
+  const history = useHistory();
 
   let playList = [];
 
@@ -32,19 +35,21 @@ function Album() {
 
   return (
     <div>
+      <button className={css.back} onClick={history.goBack}>
+        <img src={backButton} />
+      </button>
       {songList &&
         songList.map(
           (song) => (
             playList.push(song.videoId),
             (
-              <div className={css.artistOrSong}>
+              <div className={css.artistOrSongBox}>
                 <div
-                  className={css.thumbnails}
+                  className={css.songBox}
                   value={song.videoId}
                   onClick={() => songClick(song, playList)}>
                   {song.name}
                 </div>
-                <hr />
               </div>
             )
           )

@@ -81,10 +81,6 @@ function SearchBar() {
   return (
     <div>
       <div className={css.searchBar}>
-        <a href='/'>
-          <img src={ArrowIcon} className={css.backArrow} />
-        </a>
-
         <input
           type='text'
           placeholder='Artists or songs'
@@ -98,17 +94,19 @@ function SearchBar() {
         />
       </div>
 
-      <hr className={css.header} />
-
       {artist &&
         artist.map((artist) => (
-          <div className={css.artistOrSong}>
-            <img src={artist.thumbnails[0].url} />
-            <div className={css.thumbnails} onClick={() => artistClick(artist)}>
-              {artist.name}
-              <p style={{ fontSize: '12px' }}>Artist</p>
+          <div
+            onClick={() => artistClick(artist)}
+            className={css.artistOrSongBox}>
+            <div className={css.artistOrSongResult}>
+              <img className={css.thumbnails} src={artist.thumbnails[0].url} />
+              <div className={css.songArtistName}>
+                <p>{artist.name}</p>
+
+                <p style={{ fontSize: '80%' }}>Artist</p>
+              </div>
             </div>
-            <hr />
           </div>
         ))}
 
@@ -117,18 +115,19 @@ function SearchBar() {
           (song) => (
             playList.push(song.videoId),
             (
-              <div className={css.artistOrSong}>
-                <img
-                  src={song.thumbnails[0].url}
-                  onClick={() => artistClick(song.artist)}
-                />
-                <div
-                  className={css.thumbnails}
-                  onClick={() => songClick(song, playList)}>
-                  {song.name}
-                  <p style={{ fontSize: '12px' }}>Song • {song.artist.name}</p>
+              <div className={css.artistOrSongBox}>
+                <div className={css.artistOrSongResult}>
+                  <img
+                    className={css.thumbnails}
+                    src={song.thumbnails[0].url}
+                    onClick={() => artistClick(song.artist)}
+                  />
+                  <div className={css.songArtistName}>
+                    <p onClick={() => songClick(song, playList)}>{song.name}</p>
+                    <p style={{ fontSize: '80%' }}>Song • {song.artist.name}</p>
+                  </div>
                 </div>
-                <hr />
+
                 <button onClick={() => saveToPlaylist(song)}>Add</button>
               </div>
             )

@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className='App'>
-      <div className={css.playPanel}>
+      <div>
         <Player />
       </div>
       <Router>
@@ -62,8 +62,8 @@ function App() {
             <img
               src={homeOnOf}
               onClick={toggleHomeIcon}
-              height={45}
-              width={45}
+              height={30}
+              width={30}
             />
           </Link>
 
@@ -71,8 +71,8 @@ function App() {
             <img
               src={searchOnOf}
               onClick={toggleSearchIcon}
-              height={40}
-              width={45}
+              height={30}
+              width={30}
             />
           </Link>
 
@@ -80,8 +80,8 @@ function App() {
             <img
               src={libraryOnOf}
               onClick={toggleLibraryIcon}
-              height={40}
-              width={50}
+              height={30}
+              width={30}
             />
           </Link>
         </nav>

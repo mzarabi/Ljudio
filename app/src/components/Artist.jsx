@@ -1,6 +1,6 @@
-
 import React, { useState, useContext } from 'react';
 import css from './Styling.module.css';
+import backButton from '../images/back.png';
 
 import ShareArtist from './ShareArtist';
 import { useHistory } from 'react-router-dom';
@@ -17,8 +17,14 @@ function Artist() {
 
   return (
     <div>
+      <div className={css.artistButtons}>
+        <button className={css.back} onClick={history.goBack}>
+          <img src={backButton} />
+        </button>
+        <ShareArtist />
+      </div>
       <h1 className={css.name}>{artistContextVal.artistName}</h1>
-      <ShareArtist />
+
       <div className={css.picture}>
         <img src={artistContextVal.artistPicture}></img>
       </div>
