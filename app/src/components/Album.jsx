@@ -34,7 +34,7 @@ function Album() {
   }
 
   return (
-    <div>
+    <div className={css.scrollDown}>
       <button className={css.back} onClick={history.goBack}>
         <img src={backButton} />
       </button>

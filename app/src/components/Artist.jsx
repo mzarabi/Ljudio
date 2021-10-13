@@ -46,7 +46,7 @@ function Artist() {
   }
 
   return (
-    <div>
+    <div className={css.scrollDown}>
       <div className={css.artistButtons}>
         <button className={css.back} onClick={history.goBack}>
           <img src={backButton} />
