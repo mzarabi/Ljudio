@@ -15,10 +15,10 @@ function Album() {
   let playList = [];
 
   useEffect(() => {
-    getArtistApi();
+    getAlbumApi();
   }, []);
 
-  async function getArtistApi() {
+  async function getAlbumApi() {
     let response = await fetch(
       'https://yt-music-api.herokuapp.com/api/yt/album/' + albumId
     );
