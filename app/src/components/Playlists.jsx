@@ -37,13 +37,15 @@ function Playlists() {
               <div className={css.artistOrSongResult}>
                 <img className={css.thumbnails} src={song.thumbnails[0].url} />
                 <div
-                  className={css.thumbnails}
+                  className={css.songArtistName}
                   onClick={() => songClick(song, playList)}>
                   <p>{song.name}</p>
+                  <p style={{ fontSize: '80%' }}>Song • {song.artist.name}</p>
                 </div>
-                
-                <img src={removeIcon} onClick={() => handleRemove(i)} className={css.removeButton} />
               </div>
+              <button className={css.imgButton}>
+                <img src={removeIcon} onClick={() => handleRemove(i)} />
+              </button>
             </div>
           )
         )

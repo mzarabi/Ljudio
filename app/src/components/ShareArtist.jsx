@@ -20,7 +20,7 @@ function ShareArtist() {
   return (
     <div>
       <div>
-        <button className={css.shareButton} onClick={copyURL}>
+        <button className={css.imgButton} onClick={copyURL}>
           {!copied ? <img src={shareIcon} /> : <img src={checkIcon} />}
         </button>
       </div>

@@ -110,7 +110,7 @@ function SearchBar() {
                   </div>
                 </div>
                 <button
-                  className={css.shareButton}
+                  className={css.imgButton}
                   onClick={() => saveToPlaylist(song)}>
                   <img src={playListAdd} />
                 </button>
