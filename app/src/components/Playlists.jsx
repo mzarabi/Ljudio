@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { PlayerContext } from '../contexts/PlayerContext';
 import { useHistory } from 'react-router-dom';
 import css from '../components/Styling.module.css';
 
 import removeIcon from '../images/remove.png';
+import backButton from '../images/back.png';
 
 function Playlists() {
   const [userContextVal, setUserContextVal] = useContext(UserContext);
@@ -24,11 +25,14 @@ function Playlists() {
 
   function handleRemove(index) {
     userContextVal.myPlaylist.splice(index, 1);
-    history.push('/user');
+    history.push('/playlist');
   }
 
   return (
     <div className={css.scrollDown}>
+      <button className={css.back} onClick={history.goBack}>
+        <img src={backButton} />
+      </button>
       {userContextVal.myPlaylist.map(
         (song, i) => (
           playList.push(song.videoId),

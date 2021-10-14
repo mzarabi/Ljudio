@@ -239,5 +239,8 @@ body {
   margin-bottom: 20vh;
 }
 
-.removeButton {
+.smallTitle {
+  text-align: center;
+  color: orange;
+  font-size: 150%;
 }

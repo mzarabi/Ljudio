@@ -11,6 +11,7 @@ import SearchPage from './pages/SearchPage';
 import ArtistPage from './pages/ArtistPage';
 import AlbumPage from './pages/AlbumPage';
 import UserPage from './pages/UserPage';
+import PlaylistPage from './pages/PlaylistPage';
 
 import homeIconOf from './images/homepage.png';
 import homeIconOn from './images/homepage_ON.png';
@@ -91,6 +92,7 @@ function App() {
           <Route path='/search' exact component={SearchPage} />
           <Route path='/artist/:artistId' exact component={ArtistPage} />
           <Route path='/user' exact component={UserPage} />
+          <Route path='/playlist' exact component={PlaylistPage} />
           <Route path='/album/:albumId' exact component={AlbumPage} />
         </main>
       </Router>
