@@ -6,6 +6,7 @@ import css from '../components/Styling.module.css';
 
 import removeIcon from '../images/remove.png';
 import backButton from '../images/back.png';
+import playlist from '../images/playlist.jpeg';
 
 function Playlists() {
   const [userContextVal, setUserContextVal] = useContext(UserContext);
@@ -33,6 +34,10 @@ function Playlists() {
       <button className={css.back} onClick={history.goBack}>
         <img src={backButton} />
       </button>
+      <div className={css.albums}>
+        <img className={css.albumPlaylistPic} src={playlist} />
+      </div>
+
       {userContextVal.myPlaylist.map(
         (song, i) => (
           playList.push(song.videoId),

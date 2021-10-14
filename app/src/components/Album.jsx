@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom';
 function Album() {
   const [songList, setSongList] = useState([]);
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
+  const [albumPicture, setAlbumPicture] = useState();
   const { albumId } = useParams();
   const history = useHistory();
 
@@ -23,6 +24,7 @@ function Album() {
     );
     let result = await response.json();
     setSongList(result.tracks);
+    setAlbumPicture(result.thumbnails[3].url);
   }
   function songClick(song, playList) {
     let playListIndex = playList.indexOf(song.videoId);
@@ -38,6 +40,9 @@ function Album() {
       <button className={css.back} onClick={history.goBack}>
         <img src={backButton} />
       </button>
+      <div className={css.albums}>
+        <img className={css.albumPlaylistPic} src={albumPicture} />
+      </div>
       {songList &&
         songList.map(
           (song) => (
