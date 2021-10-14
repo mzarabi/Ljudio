@@ -98,11 +98,15 @@ body {
 
 .artistOrSongBox {
   display: flex;
+  justify-content: space-between;
   background-color: rgb(4, 4, 27, 0.6);
   border-radius: 20px;
   padding: 1vh 1vw;
   margin: 1%;
   color: white;
+}
+.artistOrSongBox button {
+  margin-right: 3vw;
 }
 .artistOrSongResult {
   display: flex;

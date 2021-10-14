@@ -5,7 +5,8 @@ import { ArtistContext } from '../contexts/ArtistContext';
 import { UserContext } from '../contexts/UserContext';
 import Player from './Player';
 
-import ArrowIcon from '../images/arrow.png';
+import playListAdd from '../images/playListAdd.png';
+import playListCheck from '../images/playListCheck.png';
 import css from './Styling.module.css';
 
 function SearchBar() {
@@ -17,6 +18,7 @@ function SearchBar() {
   const [artistContextVal, updateArtistContext] = useContext(ArtistContext);
   const [userContextVal, updateUserContext] = useContext(UserContext);
   const history = useHistory();
+  const [addSong, setAddSong] = useState(false);
 
   let playList = [];
 
@@ -107,8 +109,11 @@ function SearchBar() {
                     <p style={{ fontSize: '80%' }}>Song • {song.artist.name}</p>
                   </div>
                 </div>
-
-                <button onClick={() => saveToPlaylist(song)}>Add</button>
+                <button
+                  className={css.shareButton}
+                  onClick={() => saveToPlaylist(song)}>
+                  <img src={playListAdd} />
+                </button>
               </div>
             )
           )
