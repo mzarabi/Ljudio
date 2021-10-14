@@ -105,6 +105,9 @@ body {
   margin: 1%;
   color: white;
 }
+.artistOrSongBox button {
+  margin-right: 3vw;
+}
 .artistOrSongResult {
   display: flex;
   flex-direction: row;
