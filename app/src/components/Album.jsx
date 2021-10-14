@@ -1,13 +1,16 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { PlayerContext } from '../contexts/PlayerContext';
+import { UserContext } from '../contexts/UserContext';
 import { useParams } from 'react-router-dom';
 import css from './Styling.module.css';
 import backButton from '../images/back.png';
 import { useHistory } from 'react-router-dom';
+import playListAdd from '../images/playListAdd.png';
 
 function Album() {
   const [songList, setSongList] = useState([]);
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
+  const [userContextVal, updateUserContext] = useContext(UserContext);
   const [albumPicture, setAlbumPicture] = useState();
   const { albumId } = useParams();
   const history = useHistory();
@@ -25,6 +28,7 @@ function Album() {
     let result = await response.json();
     setSongList(result.tracks);
     setAlbumPicture(result.thumbnails[3].url);
+   
   }
   function songClick(song, playList) {
     let playListIndex = playList.indexOf(song.videoId);
@@ -33,6 +37,9 @@ function Album() {
       index: playListIndex,
       playListArray: playList,
     });
+  }
+  function saveToPlaylist(mySong) {
+    userContextVal.myPlaylist.push(mySong);
   }
 
   return (
@@ -55,6 +62,11 @@ function Album() {
                   onClick={() => songClick(song, playList)}>
                   {song.name}
                 </div>
+                <button
+                  className={css.imgButton}
+                  onClick={() => saveToPlaylist(song)}>
+                  <img src={playListAdd} />
+                </button>
               </div>
             )
           )
