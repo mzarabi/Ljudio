@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { PlayerContext } from '../contexts/PlayerContext';
-import { ArtistContext } from '../contexts/ArtistContext';
 import { UserContext } from '../contexts/UserContext';
-import Player from './Player';
 
 import playListAdd from '../images/playListAdd.png';
-import playListCheck from '../images/playListCheck.png';
 import css from './Styling.module.css';
 
 function SearchBar() {
@@ -15,10 +12,8 @@ function SearchBar() {
   const [artist, setArtist] = useState();
   const [currentVideoId, setCurrentVideoId] = useState();
   const [contextPlayerVal, updateContext] = useContext(PlayerContext);
-  const [artistContextVal, updateArtistContext] = useContext(ArtistContext);
   const [userContextVal, updateUserContext] = useContext(UserContext);
   const history = useHistory();
-  const [addSong, setAddSong] = useState(false);
 
   let playList = [];
 

@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { PlayerContext } from '../contexts/PlayerContext';
 import { UserContext } from '../contexts/UserContext';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import css from './Styling.module.css';
 import backButton from '../images/back.png';
-import { useHistory } from 'react-router-dom';
 import playListAdd from '../images/playListAdd.png';
 
 function Album() {
@@ -28,7 +27,6 @@ function Album() {
     let result = await response.json();
     setSongList(result.tracks);
     setAlbumPicture(result.thumbnails[3].url);
-   
   }
   function songClick(song, playList) {
     let playListIndex = playList.indexOf(song.videoId);

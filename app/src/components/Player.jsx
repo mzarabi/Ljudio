@@ -29,21 +29,6 @@ function Player() {
     }
   }, [contextPlayerVal]);
 
-  /*
-  useEffect(() => {
-    if (repeat === repeatButtonOn) {
-      if ({ playNext }) {
-        playSong(contextPlayerVal.songID);
-      }
-      if ({ playPrevious }) {
-        playSong(contextPlayerVal.songID);
-      }
-      if (onPlayerStateChange === YT.PlayerState.ENDED) {
-        playSong(contextPlayerVal.songID);
-      }
-    } else return;
-  }, [setRepeat]);
-  */
   function loadPlayer() {
     let ytPlayer = new YT.Player('yt-player', {
       height: '0',
@@ -157,7 +142,7 @@ function Player() {
   console.log(contextPlayerVal);
   return (
     <div>
-      <div id="yt-player"></div>
+      <div id='yt-player'></div>
 
       <div className={css.playerBox}>
         <div className={css.playerButtons}>

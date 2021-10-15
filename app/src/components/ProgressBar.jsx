@@ -15,7 +15,6 @@ function Progressbar() {
       let duration = context.player.getDuration();
       let playedPercent = (currentTime / duration) * 100;
 
-      // TODO: don't update when user is moving the slider
       setProgress(playedPercent);
     }, 100);
   }, [context.player]);

@@ -3,8 +3,7 @@ import css from './Styling.module.css';
 import backButton from '../images/back.png';
 
 import ShareArtist from './ShareArtist';
-import { useHistory } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 function Artist() {
   const [artistName, setArtistName] = useState();
